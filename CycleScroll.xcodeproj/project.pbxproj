@@ -14,6 +14,7 @@
 		3AD9D6B21BFF6828003934CB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9D6AE1BFF6828003934CB /* Info.plist */; };
 		3AD9D6B61BFF68F8003934CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9D6B51BFF68F8003934CB /* MainViewController.swift */; };
 		3AD9D6B81BFF69EE003934CB /* SSCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9D6B71BFF69EE003934CB /* SSCycleScrollView.swift */; };
+		3AD9D6BB1BFF6B4C003934CB /* ImageDownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9D6BA1BFF6B4C003934CB /* ImageDownloadModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		3AD9D6AE1BFF6828003934CB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AD9D6B51BFF68F8003934CB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3AD9D6B71BFF69EE003934CB /* SSCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCycleScrollView.swift; sourceTree = "<group>"; };
+		3AD9D6BA1BFF6B4C003934CB /* ImageDownloadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		3AD9D6941BFF67AA003934CB /* CycleScroll */ = {
 			isa = PBXGroup;
 			children = (
+				3AD9D6B91BFF6AFE003934CB /* Model */,
 				3AD9D6B41BFF68E7003934CB /* CustomClasses */,
 				3AD9D6B31BFF687A003934CB /* Controller */,
 				3AD9D6951BFF67AA003934CB /* AppDelegate.swift */,
@@ -90,6 +93,14 @@
 				3AD9D6B71BFF69EE003934CB /* SSCycleScrollView.swift */,
 			);
 			path = CustomClasses;
+			sourceTree = "<group>";
+		};
+		3AD9D6B91BFF6AFE003934CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3AD9D6BA1BFF6B4C003934CB /* ImageDownloadModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 				3AD9D6961BFF67AA003934CB /* AppDelegate.swift in Sources */,
 				3AD9D6B61BFF68F8003934CB /* MainViewController.swift in Sources */,
 				3AD9D6B81BFF69EE003934CB /* SSCycleScrollView.swift in Sources */,
+				3AD9D6BB1BFF6B4C003934CB /* ImageDownloadModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
