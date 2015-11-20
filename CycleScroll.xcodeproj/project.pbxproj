@@ -13,6 +13,7 @@
 		3AD9D6B11BFF6828003934CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9D6AC1BFF6828003934CB /* Main.storyboard */; };
 		3AD9D6B21BFF6828003934CB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9D6AE1BFF6828003934CB /* Info.plist */; };
 		3AD9D6B61BFF68F8003934CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9D6B51BFF68F8003934CB /* MainViewController.swift */; };
+		3AD9D6B81BFF69EE003934CB /* SSCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9D6B71BFF69EE003934CB /* SSCycleScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		3AD9D6AD1BFF6828003934CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AD9D6AE1BFF6828003934CB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AD9D6B51BFF68F8003934CB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3AD9D6B71BFF69EE003934CB /* SSCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCycleScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		3AD9D6B41BFF68E7003934CB /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				3AD9D6B71BFF69EE003934CB /* SSCycleScrollView.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			files = (
 				3AD9D6961BFF67AA003934CB /* AppDelegate.swift in Sources */,
 				3AD9D6B61BFF68F8003934CB /* MainViewController.swift in Sources */,
+				3AD9D6B81BFF69EE003934CB /* SSCycleScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +314,7 @@
 				3AD9D6A61BFF67AA003934CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
