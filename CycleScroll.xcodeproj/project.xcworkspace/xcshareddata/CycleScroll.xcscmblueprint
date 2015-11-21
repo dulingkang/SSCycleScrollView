@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DDED2DC375DE9B83521A13B9ACE66B7A29143B2C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EBCE5C9FA1F4681FCF67B24B425A2052E8CCD811" : 0,
+    "DDED2DC375DE9B83521A13B9ACE66B7A29143B2C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E4AD595D-90DD-40F0-893A-11CACA3F689A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EBCE5C9FA1F4681FCF67B24B425A2052E8CCD811" : "",
+    "DDED2DC375DE9B83521A13B9ACE66B7A29143B2C" : "SSCycleScrollView\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CycleScroll",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CycleScroll.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dulingkang\/SSCycleScrollView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DDED2DC375DE9B83521A13B9ACE66B7A29143B2C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dulingkang\/shawndu.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EBCE5C9FA1F4681FCF67B24B425A2052E8CCD811"
+    }
+  ]
+}

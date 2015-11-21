@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>imageUrl</key>
+		<string>http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/happy_winter_background1.jpg</string>
+		<key>md5</key>
+		<string>4F2B301E4C5DCC37BCD76C1D532CBF90</string>
+		<key>jumpUrl</key>
+		<string></string>
+		<key>jumpView</key>
+		<string></string>
+		<key>imageCachePath</key>
+		<string></string>
+	</dict>
+</array>
+</plist>
