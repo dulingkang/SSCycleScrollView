@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A671FAB1C0050BB00F9DA6C /* imageDownload.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A671FAA1C0050BB00F9DA6C /* imageDownload.plist */; };
+		3AD79D381C00A220008EABA2 /* SSImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD79D371C00A220008EABA2 /* SSImageFileManager.swift */; };
+		3AD79D3A1C00B010008EABA2 /* SSDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD79D391C00B010008EABA2 /* SSDownloadManager.swift */; };
 		3AD9D6961BFF67AA003934CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD9D6951BFF67AA003934CB /* AppDelegate.swift */; };
 		3AD9D6AF1BFF6828003934CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9D6A91BFF6828003934CB /* Assets.xcassets */; };
 		3AD9D6B01BFF6828003934CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD9D6AA1BFF6828003934CB /* LaunchScreen.storyboard */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		3A671FAA1C0050BB00F9DA6C /* imageDownload.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = imageDownload.plist; sourceTree = "<group>"; };
+		3AD79D371C00A220008EABA2 /* SSImageFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSImageFileManager.swift; sourceTree = "<group>"; };
+		3AD79D391C00B010008EABA2 /* SSDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDownloadManager.swift; sourceTree = "<group>"; };
 		3AD9D6921BFF67AA003934CB /* CycleScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD9D6951BFF67AA003934CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AD9D6A91BFF6828003934CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				3AD9D6B71BFF69EE003934CB /* SSCycleScrollView.swift */,
+				3AD79D371C00A220008EABA2 /* SSImageFileManager.swift */,
+				3AD79D391C00B010008EABA2 /* SSDownloadManager.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -179,10 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AD79D381C00A220008EABA2 /* SSImageFileManager.swift in Sources */,
 				3AD9D6961BFF67AA003934CB /* AppDelegate.swift in Sources */,
 				3AD9D6B61BFF68F8003934CB /* MainViewController.swift in Sources */,
 				3AD9D6B81BFF69EE003934CB /* SSCycleScrollView.swift in Sources */,
 				3AD9D6BB1BFF6B4C003934CB /* SSImageDownloadModel.swift in Sources */,
+				3AD79D3A1C00B010008EABA2 /* SSDownloadManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

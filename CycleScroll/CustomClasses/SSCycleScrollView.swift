@@ -11,7 +11,6 @@ import UIKit
 typealias tapActionBlock = (Int) -> ()
 
 class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
-    
     var currentArrayIndex: Int!
     var animationDuration: NSTimeInterval!
     var animationTimer: NSTimer?

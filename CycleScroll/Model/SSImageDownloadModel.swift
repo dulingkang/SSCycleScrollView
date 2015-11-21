@@ -8,9 +8,7 @@
 
 import UIKit
 
-let kImageListPlistName = "imageDownload.plist"
-
-struct SSImageDownloadItem {
+class SSImageDownloadItem: NSObject {
     var imageUrl: NSString
     var md5: NSString
     var jumpUrl: NSString?
@@ -26,11 +24,12 @@ struct SSImageDownloadItem {
     }
 }
 
-struct SSImageDownloadModel {
+class SSImageDownloadModel: NSObject {
     var imageList: [SSImageDownloadItem] = []
     var imageListPlistPath: NSString!
     
-    init() {
+    override init() {
+        super.init()
         self.initImageList()
     }
     
@@ -39,23 +38,16 @@ struct SSImageDownloadModel {
     }
     
     private func createImageListPlist() {
-        let dir: NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
-        let path = dir.stringByAppendingPathComponent(kImageListPlistName)
-        let fileManager = NSFileManager.defaultManager()
-        if (!fileManager.fileExistsAtPath(path)) {
-            if let bundleImagePath = NSBundle.mainBundle().pathForResource("imageDownload", ofType: "plist") {
-                let resultDictionary = NSMutableDictionary(contentsOfFile: bundleImagePath)
-                print(resultDictionary)
-                
-                do {
-                    try fileManager.copyItemAtPath(bundleImagePath, toPath: path)
-                } catch {
-                    print("copy bundle error")
-                }
-                
-            } else {
-                print("imageDownload.plist not found, make sure it is part of the bundle")
+        let ssFileManager = SSImageFileManager.sharedInstance
+        if ssFileManager.createImagePlist() {
+            let fetchedArray = NSMutableArray(contentsOfFile: ssFileManager.imagePlistPath)
+            for dict in fetchedArray! {
+                let imageItem = SSImageDownloadItem(dict: dict as! NSDictionary)
+                self.imageList.append(imageItem)
             }
+        } else {
+            print("error: create plist failed & have none plist stored")
         }
     }
+    
 }
