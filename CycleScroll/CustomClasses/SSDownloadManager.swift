@@ -10,9 +10,6 @@ import Foundation
 
 class SSDownloadManager: NSObject {
     
-    let ssFileManager = SSImageFileManager.sharedInstance
-    let ssImageModel = SSImageDownloadModel.sharedInstance
-    
     override init() {
         super.init()
     }
@@ -34,12 +31,12 @@ class SSDownloadManager: NSObject {
                         let parsedObject: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
                         if let imageList = parsedObject as? NSArray {
                             if imageList.count > 0 {
-                                self.ssFileManager.updateImagePlist(imageList)
-                                if let indexArray = self.ssImageModel.needDownloadImageAtIndexs() {
+                                SSImageFileManager.sharedInstance.updateImagePlist(imageList)
+                                if let indexArray = SSImageDownloadModel.sharedInstance.needDownloadImageAtIndexs() {
                                     if indexArray.count > 0 {
                                         var count = 0
                                         for index in indexArray {
-                                            let item = self.ssImageModel.imageList[index as! Int]
+                                            let item = SSImageDownloadModel.sharedInstance.imageList[index as! Int]
                                             self.downloadWithId(item.imageUrl, uniqueId: item.md5, complete: { (success, downloadError) -> Void in
                                                 if success {
                                                     count++
@@ -68,7 +65,7 @@ class SSDownloadManager: NSObject {
             if error != nil {
                 print(error)
             } else {
-                self.ssFileManager.updateImagePlist(uniqueId, imageUrl: storedUrl!)
+                SSImageFileManager.sharedInstance.updateImagePlist(uniqueId, imageUrl: storedUrl!)
                 complete!(true, error)
             }
         }
