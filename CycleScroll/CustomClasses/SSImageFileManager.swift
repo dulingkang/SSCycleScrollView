@@ -12,6 +12,8 @@ let kImageListPlistName = "imageDownload.plist"
 
 class SSImageFileManager: NSObject {
     var imagePlistPath: String!
+    let fileManager = NSFileManager.defaultManager()
+    let imageModel = SSImageDownloadModel.sharedInstance
     
     class var sharedInstance: SSImageFileManager {
         struct Singleton {
@@ -23,7 +25,6 @@ class SSImageFileManager: NSObject {
     func createImagePlist() -> (Bool) {
         let dir: NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
         self.imagePlistPath = dir.stringByAppendingPathComponent(kImageListPlistName)
-        let fileManager = NSFileManager.defaultManager()
         
         //plist not exist, copy plist in bundle to the path
         if (!fileManager.fileExistsAtPath(self.imagePlistPath!)) {
@@ -48,4 +49,51 @@ class SSImageFileManager: NSObject {
             return true
         }
     }
+    
+    func updateImagePlist(uniqueId: String, imageUrl: NSURL) {
+        let modelArray = NSMutableArray(contentsOfFile: self.imagePlistPath)
+        for item in modelArray! {
+            if let imageItem = item as? NSMutableDictionary {
+                let index = imageModel.findItemWithMD5((imageItem["md5"] as? String)!)
+                if index != -1 {
+                    imageItem.setObject(imageUrl, forKey: "imageCachePath")
+                    modelArray?.replaceObjectAtIndex(index, withObject: imageItem)
+                }
+            }
+        }
+        modelArray?.writeToFile(self.imagePlistPath, atomically: true)
+    }
+    
+    func updateImagePlist(imageListArray: NSArray) {
+        let sourceModelArray = NSMutableArray(contentsOfFile: self.imagePlistPath)
+        let newImageListArray: NSMutableArray = []
+        
+        //new items in remote imageListArray insert to plist
+        let index = imageModel.findItemUsingArray(imageListArray)
+        if index != -1 {
+            newImageListArray.addObject(imageModel.imageList[index])
+        }
+        
+        if newImageListArray.count > 0 {
+            newImageListArray.writeToFile(self.imagePlistPath, atomically: true)
+            imageModel.updateModel()
+        }
+        
+        //delete the unused cache image
+        for item in sourceModelArray! {
+            if let imageItem = item as? NSDictionary {
+                let index = imageModel.findItemWithMD5((imageItem["md5"] as? String)!)
+                if index != -1 {
+                    do {
+                        try fileManager.removeItemAtURL(NSURL(string: (imageItem["imageCachePath"] as? String)!)!)
+                    } catch {
+                        print("remove cache image error")
+                    }
+                    
+                }
+            }
+        }
+    }
 }
+
+

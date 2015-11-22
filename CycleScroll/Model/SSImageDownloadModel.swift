@@ -33,6 +33,13 @@ class SSImageDownloadModel: NSObject {
         self.initImageList()
     }
     
+    class var sharedInstance: SSImageDownloadModel {
+        struct Singleton {
+            static let instance = SSImageDownloadModel()
+        }
+        return Singleton.instance
+    }
+    
     private func initImageList() {
         self.createImageListPlist()
     }
@@ -50,4 +57,46 @@ class SSImageDownloadModel: NSObject {
         }
     }
     
+    func findItemWithMD5(uniqueID: NSString) -> Int {
+        var index: Int = -1
+        for item in self.imageList {
+            index++
+            if item.md5 == uniqueID {
+                return index
+            } else {
+                continue
+            }
+        }
+        return -1
+    }
+    
+    func findItemUsingArray(usingArray: NSArray) -> Int {
+        for item in usingArray {
+            if let imageItem = item as? NSDictionary {
+                let index = self.findItemWithMD5((imageItem["md5"] as? String)!)
+                return index
+            }
+        }
+        return -1
+    }
+    
+    func updateModel() {
+        self.createImageListPlist()
+    }
+    func isNeedDownloadImage(uniqueId: NSString) -> Bool {
+        let index = self.findItemWithMD5(uniqueId)
+        if index != -1 {
+            if self.imageList[index].imageCachePath?.length != 0 {
+                return false
+            } else {
+                return true
+            }
+        } else {
+            print("not found unique id in plist")
+            return false
+        }
+        
+    }
 }
+
+

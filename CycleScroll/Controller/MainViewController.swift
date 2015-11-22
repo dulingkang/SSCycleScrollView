@@ -8,13 +8,9 @@
 
 import UIKit
 
-let mainScrollURL = "http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/mainscrollviewinfo_ios_1.2.1.json"
 
 class MainViewController: UIViewController {
     override func viewDidLoad() {
-        let ssDownloadManager = SSDownloadManager.sharedInstance
-        ssDownloadManager.ephemeralRequest(mainScrollURL) { (data, response, error) -> Void in
-            print(data)
-        }
+
     }
 }

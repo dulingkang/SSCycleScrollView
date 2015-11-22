@@ -2,29 +2,18 @@
 //  SSDownloadManager.swift
 //  CycleScroll
 //
-//  Created by dulingkang on 21/11/15.
+//  Created by dulingkang on 22/11/15.
 //  Copyright © 2015 shawn. All rights reserved.
 //
 
 import Foundation
 
-public protocol URLStringConvertible {
-    var URLString: String { get }
-}
-
-extension String: URLStringConvertible {
-    public var URLString: String {
-        return self
-    }
-}
-
-extension NSURL: URLStringConvertible {
-    public var URLString: String {
-        return absoluteString
-    }
-}
+let mainScrollURL = "http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/mainscrollviewinfo_ios_1.2.1.json"
 
 class SSDownloadManager: NSObject {
+    
+    let ssFileManager = SSImageFileManager.sharedInstance
+    let ssImageModel = SSImageDownloadModel.sharedInstance
     
     class var sharedInstance: SSDownloadManager {
         struct Singleton {
@@ -33,13 +22,41 @@ class SSDownloadManager: NSObject {
         return Singleton.instance
     }
     
-    func ephemeralRequest(urlStr: URLStringConvertible, complete: ((NSData?, NSURLResponse?, NSError?) -> Void)?) {
-        let sessionConfig = NSURLSessionConfiguration.ephemeralSessionConfiguration()
-        let session = NSURLSession.init(configuration: sessionConfig)
-        let task = session.dataTaskWithURL(NSURL(string: urlStr.URLString)!) { (data, response, error) -> Void in
-            complete!(data, response, error)
-        }
-        task.resume()
-    }
+    func request(urlStr: String, complete: ((Bool, NSError?) -> Void)) {
+        SSNetworking.request(urlStr, sessionConfig: NSURLSessionConfiguration.ephemeralSessionConfiguration()) { (data, response, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                if data != nil {
+                    do {
+                        let parsedObject: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+                        if let imageList = parsedObject as? NSArray {
+                            if imageList.count > 0 {
+                                self.ssFileManager.updateImagePlist(imageList)
+                                if self.ssImageModel.isNeedDownloadImage()
+                                complete(true, error)
+                            }
+                        }
+                    } catch {
+                        print("parseJsonError")
+                    }
 
+                }
+            }
+        }
+    }
+    
+    func download(urlStr: String, uniqueId: String, complete: ((Bool, NSError?) -> Void)?) {
+        
+    }
+    
+    func downloadWithId(urlStr: String, uniqueId: String, complete: ((NSURL?, NSURLResponse?, NSError?) -> Void)?) {
+        SSNetworking.download(urlStr) { (storedUrl, response, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                self.ssFileManager.updateImagePlist(uniqueId, imageUrl: storedUrl!)
+            }
+        }
+    }
 }
