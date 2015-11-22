@@ -15,11 +15,15 @@ class SSImageFileManager: NSObject {
     let fileManager = NSFileManager.defaultManager()
     let imageModel = SSImageDownloadModel.sharedInstance
     
+    override init() {
+        super.init()
+    }
+    
     class var sharedInstance: SSImageFileManager {
-        struct Singleton {
+        struct ssFileManager {
             static let instance = SSImageFileManager()
         }
-        return Singleton.instance
+        return ssFileManager.instance
     }
     
     func createImagePlist() -> (Bool) {

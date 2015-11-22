@@ -8,21 +8,23 @@
 
 import Foundation
 
-let mainScrollURL = "http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/mainscrollviewinfo_ios_1.2.1.json"
-
 class SSDownloadManager: NSObject {
     
     let ssFileManager = SSImageFileManager.sharedInstance
     let ssImageModel = SSImageDownloadModel.sharedInstance
     
-    class var sharedInstance: SSDownloadManager {
-        struct Singleton {
-            static let instance = SSDownloadManager()
-        }
-        return Singleton.instance
+    override init() {
+        super.init()
     }
     
-    func request(urlStr: String, complete: ((Bool, NSError?) -> Void)) {
+    class var sharedInstance: SSDownloadManager {
+        struct ssDownload {
+            static let instance = SSDownloadManager()
+        }
+        return ssDownload.instance
+    }
+    
+    func request(urlStr: String, requestComplete: ((Bool, NSError?) -> Void)) {
         SSNetworking.request(urlStr, sessionConfig: NSURLSessionConfiguration.ephemeralSessionConfiguration()) { (data, response, error) -> Void in
             if error != nil {
                 print(error)
@@ -33,8 +35,23 @@ class SSDownloadManager: NSObject {
                         if let imageList = parsedObject as? NSArray {
                             if imageList.count > 0 {
                                 self.ssFileManager.updateImagePlist(imageList)
-                                if self.ssImageModel.isNeedDownloadImage()
-                                complete(true, error)
+                                if let indexArray = self.ssImageModel.needDownloadImageAtIndexs() {
+                                    if indexArray.count > 0 {
+                                        var count = 0
+                                        for index in indexArray {
+                                            let item = self.ssImageModel.imageList[index as! Int]
+                                            self.downloadWithId(item.imageUrl, uniqueId: item.md5, complete: { (success, downloadError) -> Void in
+                                                if success {
+                                                    count++
+                                                    if count == indexArray.count {
+                                                        requestComplete(true, error)
+                                                    }
+                                                }
+                                            })
+                                
+                                        }
+                                    }
+                                }
                             }
                         }
                     } catch {
@@ -46,16 +63,13 @@ class SSDownloadManager: NSObject {
         }
     }
     
-    func download(urlStr: String, uniqueId: String, complete: ((Bool, NSError?) -> Void)?) {
-        
-    }
-    
-    func downloadWithId(urlStr: String, uniqueId: String, complete: ((NSURL?, NSURLResponse?, NSError?) -> Void)?) {
+    func downloadWithId(urlStr: String, uniqueId: String, complete: ((Bool, NSError?) -> Void)?) {
         SSNetworking.download(urlStr) { (storedUrl, response, error) -> Void in
             if error != nil {
                 print(error)
             } else {
                 self.ssFileManager.updateImagePlist(uniqueId, imageUrl: storedUrl!)
+                complete!(true, error)
             }
         }
     }

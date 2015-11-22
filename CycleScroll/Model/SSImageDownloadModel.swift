@@ -9,24 +9,23 @@
 import UIKit
 
 class SSImageDownloadItem: NSObject {
-    var imageUrl: NSString
-    var md5: NSString
-    var jumpUrl: NSString?
-    var jumpView: NSString?
-    var imageCachePath: NSString? //when download image, add image cache path
+    var imageUrl: String
+    var md5: String
+    var jumpUrl: String?
+    var jumpView: String?
+    var imageCachePath: String? //when download image, add image cache path
     
     init(dict: NSDictionary) {
-        self.imageUrl = dict["imageUrl"] as! NSString
-        self.md5 = dict["md5"] as! NSString
-        self.jumpUrl = dict["jumpUrl"] as? NSString
-        self.jumpView = dict["jumpView"] as? NSString
-        self.imageCachePath = dict["imageCachePath"] as? NSString
+        self.imageUrl = dict["imageUrl"] as! String
+        self.md5 = dict["md5"] as! String
+        self.jumpUrl = dict["jumpUrl"] as? String
+        self.jumpView = dict["jumpView"] as? String
+        self.imageCachePath = dict["imageCachePath"] as? String
     }
 }
 
 class SSImageDownloadModel: NSObject {
     var imageList: [SSImageDownloadItem] = []
-    var imageListPlistPath: NSString!
     
     override init() {
         super.init()
@@ -34,10 +33,10 @@ class SSImageDownloadModel: NSObject {
     }
     
     class var sharedInstance: SSImageDownloadModel {
-        struct Singleton {
+        struct ssModel {
             static let instance = SSImageDownloadModel()
         }
-        return Singleton.instance
+        return ssModel.instance
     }
     
     private func initImageList() {
@@ -57,7 +56,7 @@ class SSImageDownloadModel: NSObject {
         }
     }
     
-    func findItemWithMD5(uniqueID: NSString) -> Int {
+    func findItemWithMD5(uniqueID: String) -> Int {
         var index: Int = -1
         for item in self.imageList {
             index++
@@ -83,10 +82,27 @@ class SSImageDownloadModel: NSObject {
     func updateModel() {
         self.createImageListPlist()
     }
-    func isNeedDownloadImage(uniqueId: NSString) -> Bool {
+    
+    func needDownloadImageAtIndexs() -> NSArray? {
+        let indexsArray: NSMutableArray = []
+        var index = -1
+        for item in self.imageList {
+            index++
+            if self.isNeedDownloadImage(item.imageCachePath!) {
+                indexsArray.addObject(index)
+            }
+        }
+        if indexsArray.count > 0 {
+            return indexsArray
+        } else {
+            return nil;
+        }
+    }
+    
+    func isNeedDownloadImage(uniqueId: String) -> Bool {
         let index = self.findItemWithMD5(uniqueId)
         if index != -1 {
-            if self.imageList[index].imageCachePath?.length != 0 {
+            if self.imageList[index].imageCachePath?.characters.count != 0 {
                 return false
             } else {
                 return true
