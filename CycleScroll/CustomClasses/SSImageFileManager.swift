@@ -78,20 +78,35 @@ class SSImageFileManager: NSObject {
     }
 
     
-    func updateImagePlist(uniqueId: String, cachePath: String) {
+    func findItemWithUniqueId(uniqueId: String) -> Int {
         let modelArray = NSMutableArray(contentsOfFile: self.imagePlistPath)
+        var count = -1
         for item in modelArray! {
+            count++
             if let imageItem = item as? NSMutableDictionary {
-                let index = SSImageDownloadModel.sharedInstance.findItemWithMD5((imageItem[md5Key] as? String)!)
-                if index != -1 {
-                    imageItem.setObject(cachePath, forKey: imageCachePathKey)
-                    modelArray?.replaceObjectAtIndex(index, withObject: imageItem)
+                if imageItem[md5Key] as? String == uniqueId {
+                    return count
+                } else {
+                    print("SSImageFileManager not found the unique id:", uniqueId)
+                    return -1
                 }
             }
         }
-        print("update Image list, model Array:", modelArray)
-        modelArray?.writeToFile(self.imagePlistPath, atomically: true)
-        SSImageDownloadModel.sharedInstance.updateModel()
+        return -1
+    }
+    
+    func updateImagePlist(uniqueId: String, cachePath: String) {
+        let modelArray = NSMutableArray(contentsOfFile: self.imagePlistPath)
+        let index = self.findItemWithUniqueId(uniqueId)
+        if index != -1 {
+            if let dict = modelArray![index] as? NSDictionary {
+                dict.setValue(cachePath, forKey: uniqueId)
+                modelArray?.replaceObjectAtIndex(index, withObject: dict)
+                print("update Image list, model Array:", modelArray)
+                modelArray?.writeToFile(self.imagePlistPath, atomically: true)
+                SSImageDownloadModel.sharedInstance.updateModel(true)
+            }
+        }
     }
     
     func updateImagePlist(imageListArray: NSArray) {
@@ -101,7 +116,7 @@ class SSImageFileManager: NSObject {
         //new items in remote imageListArray insert to plist
         for item in imageListArray {
             if let imageItem = item as? NSDictionary {
-                let index = SSImageDownloadModel.sharedInstance.findItemWithMD5((imageItem[md5Key] as? String)!)
+                let index = self.findItemWithUniqueId((imageItem[md5Key] as? String)!)
                 if index == -1 {
                     newImageListArray.addObject(imageItem)
                 }
@@ -111,14 +126,14 @@ class SSImageFileManager: NSObject {
         if newImageListArray.count > 0 {
             newImageListArray.writeToFile(self.imagePlistPath, atomically: true)
             print("update Image plist", imageListArray)
-            SSImageDownloadModel.sharedInstance.updateModel()
+            SSImageDownloadModel.sharedInstance.updateModel(false)
         }
         
         //delete the unused cache image
         for item in sourceModelArray! {
             if let imageItem = item as? NSDictionary {
-                let index = SSImageDownloadModel.sharedInstance.findItemWithMD5((imageItem[md5Key] as? String)!)
-                if index != -1 {
+                let index = self.findItemWithUniqueId((imageItem[md5Key] as? String)!)
+                if index == -1 {
                     if let cachePath = imageItem[imageCachePathKey] as? String {
                         if  cachePath.characters.count > 0 {
                             do {

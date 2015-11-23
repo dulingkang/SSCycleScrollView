@@ -8,7 +8,9 @@
 
 import UIKit
 
+/*************** 使用请改变成自己服务器的url地址，自己配置json文件 ***************/
 let kMainScrollURL = "http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/mainscrollviewinfo_ios_1.2.1.json"
+
 let kScreenWidth = UIScreen.mainScreen().bounds.width
 let kScreenHeight = UIScreen.mainScreen().bounds.height
 let kScrollRect = CGRectMake(0, 0, kScreenWidth, kScreenHeight*0.8)
@@ -56,6 +58,7 @@ class MainViewController: UIViewController {
         if self.scrollImageArray.count < 1 {
             print("scrollImageArray can not be nil, make sure you can reach the internet or you have defaultBackground.jpg image")
         } else {
+/********** 传入一个至少一张图片的array，有更新图片更新它的变量allImageArray **********/
             self.mainScrollView = SSCycleScrollView.init(frame: currentRect, animationDuration: 3, inputImageArray: self.scrollImageArray)
             self.view.addSubview(self.mainScrollView!)
         }
@@ -78,7 +81,7 @@ class MainViewController: UIViewController {
             for item in imageModel.imageList {
                 if let imageUrl = item.imageCachePath {
                     if imageUrl.characters.count > 0 {
-                        if let image = UIImage.init(contentsOfFile:imageUrl) {
+                        if let image = UIImage(contentsOfFile: imageUrl) {
                             self.scrollImageArray.append(image)
                         }
                     }

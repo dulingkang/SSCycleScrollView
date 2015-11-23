@@ -77,6 +77,7 @@ class SSDownloadManager: NSObject {
                 } else {
                     data?.writeToFile(destinationPath, atomically: true)
                     SSImageFileManager.sharedInstance.updateImagePlist(uniqueId, cachePath: destinationPath)
+                    complete!(true, error)
                 }
             }
         }
