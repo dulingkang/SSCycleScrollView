@@ -9,14 +9,17 @@
 import Foundation
 
 let kImageListPlistName = "imageDownload.plist"
+let kCacheFolderName = "imageCache"
 
 class SSImageFileManager: NSObject {
     var imagePlistPath: String!
+    var imageCachePath: String!
     let fileManager = NSFileManager.defaultManager()
-    let imageModel = SSImageDownloadModel.sharedInstance
     
     override init() {
         super.init()
+        self.createImagePlist()
+        self.createImageCacheFolder()
     }
     
     class var sharedInstance: SSImageFileManager {
@@ -38,6 +41,7 @@ class SSImageFileManager: NSObject {
                 
                 do {
                     try fileManager.copyItemAtPath(bundleImagePath, toPath: self.imagePlistPath!)
+                    print ("copy to imagePlistPath:", self.imagePlistPath)
                     return true
                 } catch {
                     print("copy bundle image download plist error")
@@ -49,23 +53,45 @@ class SSImageFileManager: NSObject {
                 return false
             }
         } else {
-            print("imagePlist already exist")
+            print("imagePlist already exist:", self.imagePlistPath)
             return true
         }
     }
     
-    func updateImagePlist(uniqueId: String, imageUrl: NSURL) {
+    func createImageCacheFolder() -> (Bool) {
+        let dir: NSString = NSTemporaryDirectory()
+        self.imageCachePath = dir.stringByAppendingPathComponent(kCacheFolderName)
+        
+        if (!fileManager.fileExistsAtPath(self.imageCachePath)) {
+            do {
+                try fileManager.createDirectoryAtPath(self.imageCachePath, withIntermediateDirectories: true, attributes: nil)
+                return true
+                
+            } catch {
+                print("create cache folder failed")
+                return false
+            }
+        } else {
+            print("imageCache folder already exist:", self.imageCachePath)
+            return true
+        }
+    }
+
+    
+    func updateImagePlist(uniqueId: String, cachePath: String) {
         let modelArray = NSMutableArray(contentsOfFile: self.imagePlistPath)
         for item in modelArray! {
             if let imageItem = item as? NSMutableDictionary {
-                let index = imageModel.findItemWithMD5((imageItem["md5"] as? String)!)
+                let index = SSImageDownloadModel.sharedInstance.findItemWithMD5((imageItem[md5Key] as? String)!)
                 if index != -1 {
-                    imageItem.setObject(imageUrl, forKey: "imageCachePath")
+                    imageItem.setObject(cachePath, forKey: imageCachePathKey)
                     modelArray?.replaceObjectAtIndex(index, withObject: imageItem)
                 }
             }
         }
+        print("update Image list, model Array:", modelArray)
         modelArray?.writeToFile(self.imagePlistPath, atomically: true)
+        SSImageDownloadModel.sharedInstance.updateModel()
     }
     
     func updateImagePlist(imageListArray: NSArray) {
@@ -73,25 +99,35 @@ class SSImageFileManager: NSObject {
         let newImageListArray: NSMutableArray = []
         
         //new items in remote imageListArray insert to plist
-        let index = imageModel.findItemUsingArray(imageListArray)
-        if index != -1 {
-            newImageListArray.addObject(imageModel.imageList[index])
+        for item in imageListArray {
+            if let imageItem = item as? NSDictionary {
+                let index = SSImageDownloadModel.sharedInstance.findItemWithMD5((imageItem[md5Key] as? String)!)
+                if index == -1 {
+                    newImageListArray.addObject(imageItem)
+                }
+            }
         }
         
         if newImageListArray.count > 0 {
             newImageListArray.writeToFile(self.imagePlistPath, atomically: true)
-            imageModel.updateModel()
+            print("update Image plist", imageListArray)
+            SSImageDownloadModel.sharedInstance.updateModel()
         }
         
         //delete the unused cache image
         for item in sourceModelArray! {
             if let imageItem = item as? NSDictionary {
-                let index = imageModel.findItemWithMD5((imageItem["md5"] as? String)!)
+                let index = SSImageDownloadModel.sharedInstance.findItemWithMD5((imageItem[md5Key] as? String)!)
                 if index != -1 {
-                    do {
-                        try fileManager.removeItemAtURL(NSURL(string: (imageItem["imageCachePath"] as? String)!)!)
-                    } catch {
-                        print("remove cache image error")
+                    if let cachePath = imageItem[imageCachePathKey] as? String {
+                        if  cachePath.characters.count > 0 {
+                            do {
+                                try fileManager.removeItemAtPath((imageItem[imageCachePathKey] as? String)!)
+                            } catch {
+                                print("remove cache image error")
+                            }
+                        }
+                        
                     }
                     
                 }

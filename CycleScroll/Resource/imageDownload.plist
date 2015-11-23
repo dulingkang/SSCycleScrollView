@@ -3,15 +3,15 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>imageUrl</key>
-		<string>http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/happy_winter_background1.jpg</string>
-		<key>md5</key>
-		<string>4F2B301E4C5DCC37BCD76C1D532CBF90</string>
-		<key>jumpUrl</key>
+		<key>Url</key>
+		<string>http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/background0.jpg</string>
+		<key>MD5</key>
+		<string>4F2B301E4C5DCC37BCD76C1D532CBF00</string>
+		<key>JumpUrl</key>
 		<string></string>
-		<key>jumpView</key>
+		<key>JumpView</key>
 		<string></string>
-		<key>imageCachePath</key>
+		<key>ImageCachePath</key>
 		<string></string>
 	</dict>
 </array>

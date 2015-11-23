@@ -13,13 +13,13 @@ let mainScrollURL = "http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/mainscr
 class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        let ssDownloadManager =  SSDownloadManager.sharedInstance
         self.view.backgroundColor = UIColor.blueColor()
-        ssDownloadManager.request(mainScrollURL) { (finished, error) -> Void in
+        SSDownloadManager.sharedInstance.request(mainScrollURL) { (finished, error) -> Void in
             if finished {
                 print("download image finished")
             }
         }
+        self.view.backgroundColor = UIColor.whiteColor()
 
     }
 }

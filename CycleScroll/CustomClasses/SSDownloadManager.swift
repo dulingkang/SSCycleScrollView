@@ -29,7 +29,8 @@ class SSDownloadManager: NSObject {
                 if data != nil {
                     do {
                         let parsedObject: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-                        if let imageList = parsedObject as? NSArray {
+                        if let imageDict = parsedObject as? NSDictionary {
+                            let imageList = imageDict[mainScrollKey] as! NSArray
                             if imageList.count > 0 {
                                 SSImageFileManager.sharedInstance.updateImagePlist(imageList)
                                 if let indexArray = SSImageDownloadModel.sharedInstance.needDownloadImageAtIndexs() {
@@ -61,13 +62,42 @@ class SSDownloadManager: NSObject {
     }
     
     func downloadWithId(urlStr: String, uniqueId: String, complete: ((Bool, NSError?) -> Void)?) {
-        SSNetworking.download(urlStr) { (storedUrl, response, error) -> Void in
+        SSNetworking.request(urlStr, sessionConfig: NSURLSessionConfiguration.ephemeralSessionConfiguration()) { (data, response, error) -> Void in
             if error != nil {
                 print(error)
             } else {
-                SSImageFileManager.sharedInstance.updateImagePlist(uniqueId, imageUrl: storedUrl!)
-                complete!(true, error)
+                let fileManager = NSFileManager.defaultManager()
+                let  destinationPath = SSImageFileManager.sharedInstance.imageCachePath + "/" + uniqueId + ".jpg"
+                if fileManager.fileExistsAtPath(destinationPath) {
+                    do {
+                        try fileManager.removeItemAtPath(destinationPath)
+                    } catch {
+                        print("remove downloaded image failed!")
+                    }
+                } else {
+                    data?.writeToFile(destinationPath, atomically: true)
+                    SSImageFileManager.sharedInstance.updateImagePlist(uniqueId, cachePath: destinationPath)
+                }
             }
         }
     }
+//    func downloadWithId(urlStr: String, uniqueId: String, complete: ((Bool, NSError?) -> Void)?) {
+//        SSNetworking.download(urlStr) { (storedUrl, response, error) -> Void in
+//            if error != nil {
+//                print(error)
+//            } else {
+//                SSImageFileManager.sharedInstance.updateImagePlist(uniqueId, imageUrl: storedUrl!)
+//                let folderPath = SSImageFileManager.sharedInstance.imageCachePath
+//                let destinationPath = folderPath + "/" + "1.jpg"
+//                do {
+//                    try
+//                        NSFileManager.defaultManager().copyItemAtPath(String(storedUrl), toPath: destinationPath)
+//
+//                } catch {
+//                    print("move tmp download image from path:", storedUrl, "toPath:", destinationPath, "failed!")
+//                }
+//                complete!(true, error)
+//            }
+//        }
+//    }
 }
