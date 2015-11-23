@@ -45,6 +45,9 @@ class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
         self.currentDisplayView?.userInteractionEnabled = true
         self.previousDisplayView?.userInteractionEnabled = true
         self.lastDisplayView?.userInteractionEnabled = true
+        self.currentDisplayView?.contentMode = UIViewContentMode.ScaleAspectFill
+        self.previousDisplayView?.contentMode = UIViewContentMode.ScaleAspectFill
+        self.lastDisplayView?.contentMode = UIViewContentMode.ScaleAspectFill
         let tap = UITapGestureRecognizer.init(target: self, action: "tapAction:")
         self.addGestureRecognizer(tap)
         self.addSubview(currentDisplayView!)
@@ -104,8 +107,17 @@ class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
     
     //MARK: - private method
     func configDisplayViews() {
+        if self.allImageArray.count < 1 {
+            print("you have none image input!")
+            return 
+        }
+        if self.allImageArray.count == 1 {
+            self.allImageArray.append(self.allImageArray[0])
+        }
+        
         let previousArrayIndex = self.getArrayIndex(self.currentArrayIndex - 1)
         let lastArrayIndex = self.getArrayIndex(self.currentArrayIndex + 1)
+        
         self.previousDisplayView?.image = self.allImageArray[previousArrayIndex]
         self.currentDisplayView?.image = self.allImageArray[self.currentArrayIndex]
         self.lastDisplayView?.image = self.allImageArray[lastArrayIndex]

@@ -16,6 +16,7 @@ let jumpUrlKey = "JumpUrl"
 let jumpViewKey = "JumpView"
 let imageCachePathKey = "ImageCachePath"
 
+let kImageModelUpdateNotification = "kImageDownloadNotification"
 
 class SSImageDownloadItem: NSObject {
     var imageUrl: String
@@ -38,7 +39,7 @@ class SSImageDownloadModel: NSObject {
     
     override init() {
         super.init()
-        self.initImageList()
+        self.createImageListModel()
     }
     
     class var sharedInstance: SSImageDownloadModel {
@@ -48,17 +49,16 @@ class SSImageDownloadModel: NSObject {
         return ssModel.instance
     }
     
-    private func initImageList() {
-        self.createImageListModel()
-    }
-    
     private func createImageListModel() {
         let ssFileManager = SSImageFileManager.sharedInstance
         if ssFileManager.createImagePlist() {
             let fetchedArray = NSMutableArray(contentsOfFile: ssFileManager.imagePlistPath)
-            for dict in fetchedArray! {
-                let imageItem = SSImageDownloadItem(dict: dict as! NSDictionary)
-                self.imageList.append(imageItem)
+            if fetchedArray?.count > 0 {
+                self.imageList.removeAll()
+                for dict in fetchedArray! {
+                    let imageItem = SSImageDownloadItem(dict: dict as! NSDictionary)
+                    self.imageList.append(imageItem)
+                }
             }
         } else {
             print("error: create plist failed & have none plist stored")
@@ -80,6 +80,7 @@ class SSImageDownloadModel: NSObject {
     
     func updateModel() {
         self.createImageListModel()
+        NSNotificationCenter.defaultCenter().postNotificationName(kImageModelUpdateNotification, object: nil)
     }
     
     func needDownloadImageAtIndexs() -> NSArray? {
