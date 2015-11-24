@@ -86,9 +86,6 @@ class SSImageFileManager: NSObject {
             if let imageItem = item as? NSMutableDictionary {
                 if imageItem[md5Key] as? String == uniqueId {
                     return count
-                } else {
-                    print("SSImageFileManager not found the unique id:", uniqueId)
-                    return -1
                 }
             }
         }
@@ -100,11 +97,11 @@ class SSImageFileManager: NSObject {
         let index = self.findItemWithUniqueId(uniqueId)
         if index != -1 {
             if let dict = modelArray![index] as? NSDictionary {
-                dict.setValue(cachePath, forKey: uniqueId)
+                dict.setValue(cachePath, forKey: imageCachePathKey)
                 modelArray?.replaceObjectAtIndex(index, withObject: dict)
                 print("update Image list, model Array:", modelArray)
                 modelArray?.writeToFile(self.imagePlistPath, atomically: true)
-                SSImageDownloadModel.sharedInstance.updateModel(true)
+                SSImageDownloadModel.sharedInstance.updateModel()
             }
         }
     }
@@ -126,7 +123,7 @@ class SSImageFileManager: NSObject {
         if newImageListArray.count > 0 {
             newImageListArray.writeToFile(self.imagePlistPath, atomically: true)
             print("update Image plist", imageListArray)
-            SSImageDownloadModel.sharedInstance.updateModel(false)
+            SSImageDownloadModel.sharedInstance.updateModel()
         }
         
         //delete the unused cache image

@@ -28,19 +28,12 @@ class MainViewController: UIViewController {
         self.view.backgroundColor = UIColor.blueColor()
         SSDownloadManager.sharedInstance.request(kMainScrollURL) { (finished, error) -> Void in
             if finished {
+                self.reloadScrollImageArray()
                 print("download image finished")
             }
         }
         self.addMainScrollView()
         self.addBottomView()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadScrollImageArray", name: kImageModelUpdateNotification, object: nil)
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: kImageModelUpdateNotification, object: nil)
     }
     
     //MARK: - private method

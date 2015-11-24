@@ -78,13 +78,8 @@ class SSImageDownloadModel: NSObject {
         return -1
     }
     
-    func updateModel(needNotify: Bool) {
+    func updateModel() {
         self.createImageListModel()
-        if needNotify {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                NSNotificationCenter.defaultCenter().postNotificationName(kImageModelUpdateNotification, object: nil)
-            });
-        }
     }
     
     func needDownloadImageAtIndexs() -> NSArray? {
