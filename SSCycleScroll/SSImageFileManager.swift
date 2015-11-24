@@ -92,19 +92,58 @@ class SSImageFileManager: NSObject {
         return -1
     }
     
-    func updateImagePlist(uniqueId: String, cachePath: String) {
-        let modelArray = NSMutableArray(contentsOfFile: self.imagePlistPath)
-        let index = self.findItemWithUniqueId(uniqueId)
-        if index != -1 {
-            if let dict = modelArray![index] as? NSDictionary {
-                dict.setValue(cachePath, forKey: imageCachePathKey)
-                modelArray?.replaceObjectAtIndex(index, withObject: dict)
-                print("update Image list, model Array:", modelArray)
-                modelArray?.writeToFile(self.imagePlistPath, atomically: true)
-                SSImageDownloadModel.sharedInstance.updateModel()
+    func needDownloadImageAtIndexs() -> NSArray? {
+        let indexsArray: NSMutableArray = []
+        let sourceModelArray = NSMutableArray(contentsOfFile: self.imagePlistPath)
+        var index = -1
+        for item in sourceModelArray! {
+            index++
+            if let imageItem = item as? NSDictionary {
+                if self.isNeedDownloadImage((imageItem[md5Key] as? String)!) {
+                    indexsArray.addObject(index)
+                }
             }
+           
+        }
+        if indexsArray.count > 0 {
+            return indexsArray
+        } else {
+            return nil;
         }
     }
+    
+    func isNeedDownloadImage(uniqueId: String) -> Bool {
+        let index = self.findItemWithUniqueId(uniqueId)
+        if index != -1 {
+            let cacheFullPath = self.imageCachePath + uniqueId + ".jpg"
+            if !self.fileManager.fileExistsAtPath(cacheFullPath) {
+                return true
+            }
+        }
+        return false
+    }
+
+    func fetchItemAtIndex(index: Int) -> NSDictionary? {
+        let modelArray = NSMutableArray(contentsOfFile: self.imagePlistPath)
+        if index < 0 || index > modelArray?.count {
+            return nil
+        } else {
+            return modelArray![index] as? NSDictionary
+        }
+    }
+//    func updateImagePlist(uniqueId: String, cachePath: String) {
+//        let modelArray = NSMutableArray(contentsOfFile: self.imagePlistPath)
+//        let index = self.findItemWithUniqueId(uniqueId)
+//        if index != -1 {
+//            if let dict = modelArray![index] as? NSDictionary {
+//                dict.setValue(cachePath, forKey: imageCachePathKey)
+//                modelArray?.replaceObjectAtIndex(index, withObject: dict)
+//                print("update Image list, model Array:", modelArray)
+//                modelArray?.writeToFile(self.imagePlistPath, atomically: true)
+//                SSImageDownloadModel.sharedInstance.updateModel()
+//            }
+//        }
+//    }
     
     func updateImagePlist(imageListArray: NSArray) {
         let sourceModelArray = NSMutableArray(contentsOfFile: self.imagePlistPath)
@@ -124,24 +163,24 @@ class SSImageFileManager: NSObject {
             newImageListArray.writeToFile(self.imagePlistPath, atomically: true)
             print("update Image plist", imageListArray)
             SSImageDownloadModel.sharedInstance.updateModel()
-        }
-        
-        //delete the unused cache image
-        for item in sourceModelArray! {
-            if let imageItem = item as? NSDictionary {
-                let index = self.findItemWithUniqueId((imageItem[md5Key] as? String)!)
-                if index == -1 {
-                    if let cachePath = imageItem[imageCachePathKey] as? String {
-                        if  cachePath.characters.count > 0 {
-                            do {
-                                try fileManager.removeItemAtPath((imageItem[imageCachePathKey] as? String)!)
-                            } catch {
-                                print("remove cache image error")
+            
+            //delete the unused cache image
+            for item in sourceModelArray! {
+                if let imageItem = item as? NSDictionary {
+                    let index = self.findItemWithUniqueId((imageItem[md5Key] as? String)!)
+                    if index == -1 {
+                        if let cachePath = imageItem[imageCachePathKey] as? String {
+                            if  cachePath.characters.count > 0 {
+                                do {
+                                    try fileManager.removeItemAtPath((imageItem[imageCachePathKey] as? String)!)
+                                } catch {
+                                    print("remove cache image error")
+                                }
                             }
+                            
                         }
                         
                     }
-                    
                 }
             }
         }

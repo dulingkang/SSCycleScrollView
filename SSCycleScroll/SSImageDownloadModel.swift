@@ -8,7 +8,25 @@
 
 import UIKit
 
-//the key in plist
+/************************ Please custom your own json, the demo json:
+{
+    "scrollview_pics":[
+    {
+    "Url":"http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/show_time.jpg",
+    "MD5":"CCD5004A25F81C49D6DB7318C42CD33D",
+    "JumpView":"0"
+    "JumpUrl":"http://www.baidu.com"
+    },
+    {
+    "Url":"http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/happy_winter_background1.jpg",
+    "MD5":"4F2B301E4C5DCC37BCD76C1D532CBF90",
+    "JumpView":"0"
+    }
+    ]
+}
+************************/
+
+/************* The key in plist, also from json *************/
 let mainScrollKey = "scrollview_pics"
 let imageUrlKey = "Url"
 let md5Key = "MD5"
@@ -19,6 +37,7 @@ let imageCachePathKey = "ImageCachePath"
 let kImageModelUpdateNotification = "kImageDownloadNotification"
 
 class SSImageDownloadItem: NSObject {
+/************* custom model, add one more imageCachePath *************/
     var imageUrl: String
     var md5: String
     var jumpUrl: String?
@@ -30,7 +49,7 @@ class SSImageDownloadItem: NSObject {
         self.md5 = dict[md5Key] as! String
         self.jumpUrl = dict[jumpUrlKey] as? String
         self.jumpView = dict[jumpViewKey] as? String
-        self.imageCachePath = dict[imageCachePathKey] as? String
+        self.imageCachePath = SSImageFileManager.sharedInstance.imageCachePath + "/" + self.md5 + ".jpg"
     }
 }
 
@@ -82,41 +101,6 @@ class SSImageDownloadModel: NSObject {
         self.createImageListModel()
     }
     
-    func needDownloadImageAtIndexs() -> NSArray? {
-        let indexsArray: NSMutableArray = []
-        var index = -1
-        for item in self.imageList {
-            index++
-            if self.isNeedDownloadImage(item.md5) {
-                indexsArray.addObject(index)
-            }
-        }
-        if indexsArray.count > 0 {
-            return indexsArray
-        } else {
-            return nil;
-        }
-    }
-    
-    func isNeedDownloadImage(uniqueId: String) -> Bool {
-        let index = self.findItemWithMD5(uniqueId)
-        if index != -1 {
-            if let cachePath = self.imageList[index].imageCachePath {
-                if cachePath.characters.count > 0 {
-                    return false
-                } else {
-                    return true
-                }
-                
-            } else {
-                return true
-            }
-            
-        } else {
-            print("not found unique id in plist")
-            return false
-        }
-    }
 }
 
 

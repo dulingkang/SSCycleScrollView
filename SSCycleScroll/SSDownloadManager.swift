@@ -33,20 +33,20 @@ class SSDownloadManager: NSObject {
                             let imageList = imageDict[mainScrollKey] as! NSArray
                             if imageList.count > 0 {
                                 SSImageFileManager.sharedInstance.updateImagePlist(imageList)
-                                if let indexArray = SSImageDownloadModel.sharedInstance.needDownloadImageAtIndexs() {
+                                if let indexArray = SSImageFileManager.sharedInstance.needDownloadImageAtIndexs() {
                                     if indexArray.count > 0 {
                                         var count = 0
                                         for index in indexArray {
-                                            let item = SSImageDownloadModel.sharedInstance.imageList[index as! Int]
-                                            self.downloadWithId(item.imageUrl, uniqueId: item.md5, complete: { (success, downloadError) -> Void in
-                                                if success {
-                                                    count++
-                                                    if count == indexArray.count {
-                                                        requestComplete(true, error)
+                                            if let item = SSImageFileManager.sharedInstance.fetchItemAtIndex((index as? Int)!) {
+                                                self.downloadWithId((item[imageUrlKey] as? String)!, uniqueId: (item[md5Key] as? String)!, complete: { (success, downloadError) -> Void in
+                                                    if success {
+                                                        count++
+                                                        if count == indexArray.count {
+                                                            requestComplete(true, error)
+                                                        }
                                                     }
-                                                }
-                                            })
-                                
+                                                })
+                                            }
                                         }
                                     }
                                 }
@@ -76,7 +76,7 @@ class SSDownloadManager: NSObject {
                     }
                 } else {
                     data?.writeToFile(destinationPath, atomically: true)
-                    SSImageFileManager.sharedInstance.updateImagePlist(uniqueId, cachePath: destinationPath)
+//                    SSImageFileManager.sharedInstance.updateImagePlist(uniqueId)
                     complete!(true, error)
                 }
             }

@@ -7,14 +7,14 @@
     "EBCE5C9FA1F4681FCF67B24B425A2052E8CCD811" : 0,
     "DDED2DC375DE9B83521A13B9ACE66B7A29143B2C" : 0
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E4AD595D-90DD-40F0-893A-11CACA3F689A",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FCA69CAE-04D0-4F34-A320-7B8416B10483",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "EBCE5C9FA1F4681FCF67B24B425A2052E8CCD811" : "",
     "DDED2DC375DE9B83521A13B9ACE66B7A29143B2C" : "SSCycleScrollView\/"
   },
-  "DVTSourceControlWorkspaceBlueprintNameKey" : "CycleScroll",
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SSCycleScrollDemo",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CycleScroll.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SSCycleScrollDemo\/SSCycleScrollDemo.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dulingkang\/SSCycleScrollView.git",

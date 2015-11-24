@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
         self.view.backgroundColor = UIColor.blueColor()
         SSDownloadManager.sharedInstance.request(kMainScrollURL) { (finished, error) -> Void in
             if finished {
+/********** 所有图片都下载完成后，reloadCycleScroll中的array **********/                
                 self.reloadScrollImageArray()
                 print("download image finished")
             }
@@ -61,7 +62,7 @@ class MainViewController: UIViewController {
         //Use layer can be more light
         let layer = CALayer()
         layer.frame = CGRectMake(0, kScreenHeight/2, kScreenWidth, kScreenHeight/2)
-        layer.contents = UIImage(named: "mainBottomBackground.jpg")?.CGImage
+        layer.contents = UIImage(named: "mainBottomBackground")?.CGImage
         layer.contentsGravity = kCAGravityResizeAspectFill
         self.view.layer.addSublayer(layer)
     }
