@@ -87,4 +87,3 @@ self.contentOffset = CGPointMake(CGRectGetWidth(self.frame), 0)
 
 > 如果你觉得有不好的地方，可以提出来，大家一块研究一下，欢迎常来我的[仓库](https://github.com/dulingkang/)，别忘记给个star！
 
->  [github代码地址](https://github.com/dulingkang/SSCycleScrollView)
