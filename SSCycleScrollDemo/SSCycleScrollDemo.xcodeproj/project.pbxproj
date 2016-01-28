@@ -7,53 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A2482301C59FC2700F27695 /* SSCycleScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2482271C59FB2C00F27695 /* SSCycleScrollView.framework */; };
-		3A24823E1C5A05BF00F27695 /* SSCycleScrollView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2482271C59FB2C00F27695 /* SSCycleScrollView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A8283B31C0412E1004E339F /* mainBottomBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8283B21C0412E1004E339F /* mainBottomBackground.png */; };
 		3A9D56E11C040ADF000C3533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D56E01C040ADF000C3533 /* AppDelegate.swift */; };
 		3A9D56E61C040AE0000C3533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D56E41C040AE0000C3533 /* Main.storyboard */; };
 		3A9D56E81C040AE0000C3533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D56E71C040AE0000C3533 /* Assets.xcassets */; };
 		3A9D56EB1C040AE0000C3533 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D56E91C040AE0000C3533 /* LaunchScreen.storyboard */; };
 		3A9D56F91C040BB2000C3533 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D56F21C040BB2000C3533 /* MainViewController.swift */; };
+		AB760B6696748CC0DBA35406 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80542A005AE6ED6E9A26042F /* Pods.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3A2482261C59FB2C00F27695 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3A5B2E4B1C58E3BB006D82FC;
-			remoteInfo = SSCycleScrollView;
-		};
-		3A2482281C59FB2C00F27695 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3A5B2E551C58E3BB006D82FC;
-			remoteInfo = SSCycleScrollViewTests;
-		};
-		3A24822A1C59FB2C00F27695 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3A2482141C59F9C600F27695;
-			remoteInfo = SSResource;
-		};
-		3A24822C1C59FB8100F27695 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3A5B2E4A1C58E3BB006D82FC;
-			remoteInfo = SSCycleScrollView;
-		};
-		3A24823F1C5A05BF00F27695 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3A5B2E4A1C58E3BB006D82FC;
-			remoteInfo = SSCycleScrollView;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3A2482411C5A05BF00F27695 /* Embed Frameworks */ = {
@@ -62,7 +23,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3A24823E1C5A05BF00F27695 /* SSCycleScrollView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,7 +30,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSCycleScrollView.xcodeproj; path = ../../SSCycleScrollView/SSCycleScrollView.xcodeproj; sourceTree = "<group>"; };
 		3A8283B21C0412E1004E339F /* mainBottomBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainBottomBackground.png; sourceTree = "<group>"; };
 		3A9D56DD1C040ADF000C3533 /* SSCycleScrollDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSCycleScrollDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9D56E01C040ADF000C3533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +38,9 @@
 		3A9D56EA1C040AE0000C3533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A9D56EC1C040AE0000C3533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A9D56F21C040BB2000C3533 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		80542A005AE6ED6E9A26042F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8616BF0EA6C196F1AC8386A0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FC72182DEB438708800F3A67 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,21 +48,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A2482301C59FC2700F27695 /* SSCycleScrollView.framework in Frameworks */,
+				AB760B6696748CC0DBA35406 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A2482211C59FB2C00F27695 /* Products */ = {
+		344F3358C33406BD7C7E8EAF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3A2482271C59FB2C00F27695 /* SSCycleScrollView.framework */,
-				3A2482291C59FB2C00F27695 /* SSCycleScrollViewTests.xctest */,
-				3A24822B1C59FB2C00F27695 /* SSResource.bundle */,
+				8616BF0EA6C196F1AC8386A0 /* Pods.debug.xcconfig */,
+				FC72182DEB438708800F3A67 /* Pods.release.xcconfig */,
 			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		3A9D56D41C040ADF000C3533 = {
@@ -109,6 +70,7 @@
 				3A9D56DF1C040ADF000C3533 /* SSCycleScrollDemo */,
 				3A9D56DE1C040ADF000C3533 /* Products */,
 				AA8870CFB7E82F741A09A95D /* Frameworks */,
+				344F3358C33406BD7C7E8EAF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,7 +85,6 @@
 		3A9D56DF1C040ADF000C3533 /* SSCycleScrollDemo */ = {
 			isa = PBXGroup;
 			children = (
-				3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */,
 				3A9D56F21C040BB2000C3533 /* MainViewController.swift */,
 				3A9D56E01C040ADF000C3533 /* AppDelegate.swift */,
 				3A9D56E41C040AE0000C3533 /* Main.storyboard */,
@@ -138,6 +99,7 @@
 		AA8870CFB7E82F741A09A95D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				80542A005AE6ED6E9A26042F /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -149,16 +111,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A9D56EF1C040AE0000C3533 /* Build configuration list for PBXNativeTarget "SSCycleScrollDemo" */;
 			buildPhases = (
+				AC25FE923A836F0ED2EF857D /* Check Pods Manifest.lock */,
 				3A9D56D91C040ADF000C3533 /* Sources */,
 				3A9D56DA1C040ADF000C3533 /* Frameworks */,
 				3A9D56DB1C040ADF000C3533 /* Resources */,
 				3A2482411C5A05BF00F27695 /* Embed Frameworks */,
+				CC70AA7FB3162FA084A18936 /* Embed Pods Frameworks */,
+				7921BEB1A9B70696F9369290 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3A24822D1C59FB8100F27695 /* PBXTargetDependency */,
-				3A2482401C5A05BF00F27695 /* PBXTargetDependency */,
 			);
 			name = SSCycleScrollDemo;
 			productName = SSCycleScrollDemo;
@@ -192,42 +155,12 @@
 			mainGroup = 3A9D56D41C040ADF000C3533;
 			productRefGroup = 3A9D56DE1C040ADF000C3533 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 3A2482211C59FB2C00F27695 /* Products */;
-					ProjectRef = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				3A9D56DC1C040ADF000C3533 /* SSCycleScrollDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		3A2482271C59FB2C00F27695 /* SSCycleScrollView.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSCycleScrollView.framework;
-			remoteRef = 3A2482261C59FB2C00F27695 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3A2482291C59FB2C00F27695 /* SSCycleScrollViewTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SSCycleScrollViewTests.xctest;
-			remoteRef = 3A2482281C59FB2C00F27695 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3A24822B1C59FB2C00F27695 /* SSResource.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SSResource.bundle;
-			remoteRef = 3A24822A1C59FB2C00F27695 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3A9D56DB1C040ADF000C3533 /* Resources */ = {
@@ -243,6 +176,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7921BEB1A9B70696F9369290 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC25FE923A836F0ED2EF857D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CC70AA7FB3162FA084A18936 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3A9D56D91C040ADF000C3533 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -254,19 +235,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3A24822D1C59FB8100F27695 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SSCycleScrollView;
-			targetProxy = 3A24822C1C59FB8100F27695 /* PBXContainerItemProxy */;
-		};
-		3A2482401C5A05BF00F27695 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SSCycleScrollView;
-			targetProxy = 3A24823F1C5A05BF00F27695 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3A9D56E41C040AE0000C3533 /* Main.storyboard */ = {
@@ -371,6 +339,7 @@
 		};
 		3A9D56F01C040AE0000C3533 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8616BF0EA6C196F1AC8386A0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -386,6 +355,7 @@
 		};
 		3A9D56F11C040AE0000C3533 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC72182DEB438708800F3A67 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

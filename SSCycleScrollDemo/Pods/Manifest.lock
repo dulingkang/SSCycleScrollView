@@ -1,1 +1,10 @@
+PODS:
+  - SSCycleScrollView (1.0.3)
+
+DEPENDENCIES:
+  - SSCycleScrollView
+
+SPEC CHECKSUMS:
+  SSCycleScrollView: c587b6258c85da84d85312a5f6d2b273d6c5280b
+
 COCOAPODS: 0.39.0

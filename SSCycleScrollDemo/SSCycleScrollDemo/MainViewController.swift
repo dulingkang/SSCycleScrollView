@@ -46,7 +46,7 @@ class MainViewController: UIViewController {
             currentRect = kIphone4sScrollRect
         }
         if self.scrollImageArray.count < 1 {
-            let frameworkBundle = NSBundle(identifier: "SH.SSCycleScrollView")
+            let frameworkBundle = NSBundle(identifier: "org.cocoapods.SSCycleScrollView")
             let imageName = frameworkBundle!.pathForResource("defaultBackground", ofType: "jpg")
             if let image = UIImage(named: imageName!) {
                 self.scrollImageArray.append(image)
