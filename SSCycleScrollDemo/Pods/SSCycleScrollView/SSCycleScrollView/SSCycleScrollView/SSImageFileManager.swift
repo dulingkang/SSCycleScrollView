@@ -35,8 +35,8 @@ class SSImageFileManager: NSObject {
         
         //plist not exist, copy plist in bundle to the path
         if (!fileManager.fileExistsAtPath(self.imagePlistPath!)) {
-            let frameworkBundle = NSBundle(identifier: "SH.SSCycleScrollView")
-            if let bundleImagePath = frameworkBundle!.pathForResource("imageDownload", ofType: "plist") {
+            let frameworkBundle = NSBundle(forClass: SSCycleScrollView.self)
+            if let bundleImagePath = frameworkBundle.pathForResource("imageDownload", ofType: "plist") {
                 let resultArray = NSMutableArray(contentsOfFile: bundleImagePath)
                 print(resultArray)
                 
