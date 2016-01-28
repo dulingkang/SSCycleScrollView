@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "SSCycleScrollView"
-  spec.version = "1.0.0"
+  spec.version = "0.0.0"
   spec.summary = "infinate scroll home page using swift"
   spec.homepage = "https://github.com/dulingkang/SSCycleScrollView"
   spec.license = { type: 'MIT', file: 'LICENSE' }
