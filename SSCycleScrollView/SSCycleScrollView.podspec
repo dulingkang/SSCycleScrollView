@@ -9,5 +9,5 @@ Pod::Spec.new do |spec|
   spec.platform = :ios, "8.0"
   spec.requires_arc = true
   spec.source = { git: "https://github.com/dulingkang/SSCycleScrollView.git", tag: "v#{spec.version}", submodules: true }
-  spec.source_files = "SSCycleScrollView/**/*.{h,swift,jpg,plist}"
+  spec.source_files = "SSCycleScrollView/*.{h,swift,jpg,plist}"
 end
