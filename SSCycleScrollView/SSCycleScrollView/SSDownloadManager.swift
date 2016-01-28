@@ -8,20 +8,14 @@
 
 import Foundation
 
-class SSDownloadManager: NSObject {
+public class SSDownloadManager: NSObject {
     
+    public static let sharedInstance = SSDownloadManager()
     override init() {
         super.init()
     }
     
-    class var sharedInstance: SSDownloadManager {
-        struct ssDownload {
-            static let instance = SSDownloadManager()
-        }
-        return ssDownload.instance
-    }
-    
-    func request(urlStr: String, requestComplete: ((Bool, NSError?) -> Void)) {
+    public func request(urlStr: String, requestComplete: ((Bool, NSError?) -> Void)) {
         SSNetworking.request(urlStr, sessionConfig: NSURLSessionConfiguration.ephemeralSessionConfiguration()) { (data, response, error) -> Void in
             if error != nil {
                 print(error)

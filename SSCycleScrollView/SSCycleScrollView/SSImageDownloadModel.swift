@@ -36,13 +36,13 @@ let imageCachePathKey = "ImageCachePath"
 
 let kImageModelUpdateNotification = "kImageDownloadNotification"
 
-class SSImageDownloadItem: NSObject {
+public class SSImageDownloadItem: NSObject {
 /************* custom model, add one more imageCachePath *************/
     var imageUrl: String
     var md5: String
     var jumpUrl: String?
     var jumpView: String?
-    var imageCachePath: String? //when download image, add image cache path
+    public var imageCachePath: String? //when download image, add image cache path
     
     init(dict: NSDictionary) {
         self.imageUrl = dict[imageUrlKey] as! String
@@ -53,21 +53,14 @@ class SSImageDownloadItem: NSObject {
     }
 }
 
-class SSImageDownloadModel: NSObject {
-    var imageList: [SSImageDownloadItem] = []
-    
+public class SSImageDownloadModel: NSObject {
+    public var imageList: [SSImageDownloadItem] = []
+    public static let sharedInstance = SSImageDownloadModel()
     override init() {
         super.init()
         self.createImageListModel()
     }
-    
-    class var sharedInstance: SSImageDownloadModel {
-        struct ssModel {
-            static let instance = SSImageDownloadModel()
-        }
-        return ssModel.instance
-    }
-    
+        
     private func createImageListModel() {
         let ssFileManager = SSImageFileManager.sharedInstance
         if ssFileManager.createImagePlist() {

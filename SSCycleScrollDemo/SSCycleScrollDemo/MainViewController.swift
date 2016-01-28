@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SSCycleScrollView
 
 /*************** 使用请改变成自己服务器的url地址，自己配置json文件 ***************/
 let kMainScrollURL = "http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/mainscrollviewinfo_ios_1.2.1.json"
@@ -45,7 +46,9 @@ class MainViewController: UIViewController {
             currentRect = kIphone4sScrollRect
         }
         if self.scrollImageArray.count < 1 {
-            if let image = UIImage(named: "defaultBackground.jpg") {
+            let frameworkBundle = NSBundle(identifier: "SH.SSCycleScrollView")
+            let imageName = frameworkBundle!.pathForResource("defaultBackground", ofType: "jpg")
+            if let image = UIImage(named: imageName!) {
                 self.scrollImageArray.append(image)
             }
         }

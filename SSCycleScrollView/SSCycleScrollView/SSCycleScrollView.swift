@@ -10,20 +10,20 @@ import UIKit
 
 typealias tapActionBlock = (Int) -> ()
 
-class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
+public class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
     var currentArrayIndex: Int!
     var animationDuration: NSTimeInterval!
     var animationTimer: NSTimer?
     var currentDisplayView: UIImageView?
     var lastDisplayView: UIImageView?
     var previousDisplayView: UIImageView?
-    var allImageArray: [UIImage] = []
+    public var allImageArray: [UIImage] = []
     var tapBlock: tapActionBlock?
     let kScreenWidth = UIScreen.mainScreen().bounds.size.width
     let kScreenHeight = UIScreen.mainScreen().bounds.size.height
     
     //MARK: - init method
-    init(frame: CGRect, animationDuration: NSTimeInterval, inputImageArray: [UIImage]) {
+    public init(frame: CGRect, animationDuration: NSTimeInterval, inputImageArray: [UIImage]) {
         super.init(frame: frame)
         self.animationDuration = animationDuration
         self.allImageArray = inputImageArray
@@ -62,20 +62,20 @@ class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
         self.createScrollTimer()
     }
     
-    required init(coder: NSCoder) {
+    required public init(coder: NSCoder) {
         super.init(coder: coder)!
     }
     
     //MARK: - Scrollview delegate
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         self.animationTimer?.fireDate = NSDate.distantFuture()
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.createScrollTimer()
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    public func scrollViewDidScroll(scrollView: UIScrollView) {
         if self.contentOffset.x >= (2 * CGRectGetWidth(self.frame)){
             self.currentArrayIndex = self.getArrayIndex(self.currentArrayIndex + 1)
             self.configDisplayViews()

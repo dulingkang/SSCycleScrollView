@@ -7,14 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2482301C59FC2700F27695 /* SSCycleScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2482271C59FB2C00F27695 /* SSCycleScrollView.framework */; };
+		3A24823E1C5A05BF00F27695 /* SSCycleScrollView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2482271C59FB2C00F27695 /* SSCycleScrollView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A8283B31C0412E1004E339F /* mainBottomBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8283B21C0412E1004E339F /* mainBottomBackground.png */; };
-		3A8283BC1C042D8A004E339F /* defaultBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A8283B51C042D8A004E339F /* defaultBackground.jpg */; };
-		3A8283BD1C042D8A004E339F /* imageDownload.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A8283B61C042D8A004E339F /* imageDownload.plist */; };
-		3A8283BE1C042D8A004E339F /* SSCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283B71C042D8A004E339F /* SSCycleScrollView.swift */; };
-		3A8283BF1C042D8A004E339F /* SSDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283B81C042D8A004E339F /* SSDownloadManager.swift */; };
-		3A8283C01C042D8A004E339F /* SSImageDownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283B91C042D8A004E339F /* SSImageDownloadModel.swift */; };
-		3A8283C11C042D8A004E339F /* SSImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283BA1C042D8A004E339F /* SSImageFileManager.swift */; };
-		3A8283C21C042D8A004E339F /* SSNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283BB1C042D8A004E339F /* SSNetworking.swift */; };
 		3A9D56E11C040ADF000C3533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D56E01C040ADF000C3533 /* AppDelegate.swift */; };
 		3A9D56E61C040AE0000C3533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D56E41C040AE0000C3533 /* Main.storyboard */; };
 		3A9D56E81C040AE0000C3533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D56E71C040AE0000C3533 /* Assets.xcassets */; };
@@ -22,15 +17,61 @@
 		3A9D56F91C040BB2000C3533 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D56F21C040BB2000C3533 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3A2482261C59FB2C00F27695 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3A5B2E4B1C58E3BB006D82FC;
+			remoteInfo = SSCycleScrollView;
+		};
+		3A2482281C59FB2C00F27695 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3A5B2E551C58E3BB006D82FC;
+			remoteInfo = SSCycleScrollViewTests;
+		};
+		3A24822A1C59FB2C00F27695 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3A2482141C59F9C600F27695;
+			remoteInfo = SSResource;
+		};
+		3A24822C1C59FB8100F27695 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A5B2E4A1C58E3BB006D82FC;
+			remoteInfo = SSCycleScrollView;
+		};
+		3A24823F1C5A05BF00F27695 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A5B2E4A1C58E3BB006D82FC;
+			remoteInfo = SSCycleScrollView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3A2482411C5A05BF00F27695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3A24823E1C5A05BF00F27695 /* SSCycleScrollView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSCycleScrollView.xcodeproj; path = ../../SSCycleScrollView/SSCycleScrollView.xcodeproj; sourceTree = "<group>"; };
 		3A8283B21C0412E1004E339F /* mainBottomBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainBottomBackground.png; sourceTree = "<group>"; };
-		3A8283B51C042D8A004E339F /* defaultBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultBackground.jpg; sourceTree = "<group>"; };
-		3A8283B61C042D8A004E339F /* imageDownload.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = imageDownload.plist; sourceTree = "<group>"; };
-		3A8283B71C042D8A004E339F /* SSCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCycleScrollView.swift; sourceTree = "<group>"; };
-		3A8283B81C042D8A004E339F /* SSDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDownloadManager.swift; sourceTree = "<group>"; };
-		3A8283B91C042D8A004E339F /* SSImageDownloadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSImageDownloadModel.swift; sourceTree = "<group>"; };
-		3A8283BA1C042D8A004E339F /* SSImageFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSImageFileManager.swift; sourceTree = "<group>"; };
-		3A8283BB1C042D8A004E339F /* SSNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSNetworking.swift; sourceTree = "<group>"; };
 		3A9D56DD1C040ADF000C3533 /* SSCycleScrollDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSCycleScrollDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9D56E01C040ADF000C3533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A9D56E51C040AE0000C3533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,25 +86,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2482301C59FC2700F27695 /* SSCycleScrollView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A8283B41C042D8A004E339F /* SSCycleScroll */ = {
+		3A2482211C59FB2C00F27695 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A8283B51C042D8A004E339F /* defaultBackground.jpg */,
-				3A8283B61C042D8A004E339F /* imageDownload.plist */,
-				3A8283B71C042D8A004E339F /* SSCycleScrollView.swift */,
-				3A8283B81C042D8A004E339F /* SSDownloadManager.swift */,
-				3A8283B91C042D8A004E339F /* SSImageDownloadModel.swift */,
-				3A8283BA1C042D8A004E339F /* SSImageFileManager.swift */,
-				3A8283BB1C042D8A004E339F /* SSNetworking.swift */,
+				3A2482271C59FB2C00F27695 /* SSCycleScrollView.framework */,
+				3A2482291C59FB2C00F27695 /* SSCycleScrollViewTests.xctest */,
+				3A24822B1C59FB2C00F27695 /* SSResource.bundle */,
 			);
-			name = SSCycleScroll;
-			path = ../../SSCycleScroll;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3A9D56D41C040ADF000C3533 = {
@@ -71,6 +108,7 @@
 			children = (
 				3A9D56DF1C040ADF000C3533 /* SSCycleScrollDemo */,
 				3A9D56DE1C040ADF000C3533 /* Products */,
+				AA8870CFB7E82F741A09A95D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,7 +123,7 @@
 		3A9D56DF1C040ADF000C3533 /* SSCycleScrollDemo */ = {
 			isa = PBXGroup;
 			children = (
-				3A8283B41C042D8A004E339F /* SSCycleScroll */,
+				3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */,
 				3A9D56F21C040BB2000C3533 /* MainViewController.swift */,
 				3A9D56E01C040ADF000C3533 /* AppDelegate.swift */,
 				3A9D56E41C040AE0000C3533 /* Main.storyboard */,
@@ -95,6 +133,13 @@
 				3A8283B21C0412E1004E339F /* mainBottomBackground.png */,
 			);
 			path = SSCycleScrollDemo;
+			sourceTree = "<group>";
+		};
+		AA8870CFB7E82F741A09A95D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,10 +152,13 @@
 				3A9D56D91C040ADF000C3533 /* Sources */,
 				3A9D56DA1C040ADF000C3533 /* Frameworks */,
 				3A9D56DB1C040ADF000C3533 /* Resources */,
+				3A2482411C5A05BF00F27695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3A24822D1C59FB8100F27695 /* PBXTargetDependency */,
+				3A2482401C5A05BF00F27695 /* PBXTargetDependency */,
 			);
 			name = SSCycleScrollDemo;
 			productName = SSCycleScrollDemo;
@@ -129,6 +177,7 @@
 				TargetAttributes = {
 					3A9D56DC1C040ADF000C3533 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = A9VAJDN54X;
 					};
 				};
 			};
@@ -143,12 +192,42 @@
 			mainGroup = 3A9D56D41C040ADF000C3533;
 			productRefGroup = 3A9D56DE1C040ADF000C3533 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3A2482211C59FB2C00F27695 /* Products */;
+					ProjectRef = 3A2482201C59FB2C00F27695 /* SSCycleScrollView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3A9D56DC1C040ADF000C3533 /* SSCycleScrollDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3A2482271C59FB2C00F27695 /* SSCycleScrollView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSCycleScrollView.framework;
+			remoteRef = 3A2482261C59FB2C00F27695 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A2482291C59FB2C00F27695 /* SSCycleScrollViewTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSCycleScrollViewTests.xctest;
+			remoteRef = 3A2482281C59FB2C00F27695 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A24822B1C59FB2C00F27695 /* SSResource.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSResource.bundle;
+			remoteRef = 3A24822A1C59FB2C00F27695 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3A9D56DB1C040ADF000C3533 /* Resources */ = {
@@ -157,9 +236,7 @@
 			files = (
 				3A9D56EB1C040AE0000C3533 /* LaunchScreen.storyboard in Resources */,
 				3A9D56E81C040AE0000C3533 /* Assets.xcassets in Resources */,
-				3A8283BD1C042D8A004E339F /* imageDownload.plist in Resources */,
 				3A8283B31C0412E1004E339F /* mainBottomBackground.png in Resources */,
-				3A8283BC1C042D8A004E339F /* defaultBackground.jpg in Resources */,
 				3A9D56E61C040AE0000C3533 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,17 +248,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A8283C21C042D8A004E339F /* SSNetworking.swift in Sources */,
 				3A9D56E11C040ADF000C3533 /* AppDelegate.swift in Sources */,
 				3A9D56F91C040BB2000C3533 /* MainViewController.swift in Sources */,
-				3A8283BE1C042D8A004E339F /* SSCycleScrollView.swift in Sources */,
-				3A8283C11C042D8A004E339F /* SSImageFileManager.swift in Sources */,
-				3A8283BF1C042D8A004E339F /* SSDownloadManager.swift in Sources */,
-				3A8283C01C042D8A004E339F /* SSImageDownloadModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A24822D1C59FB8100F27695 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSCycleScrollView;
+			targetProxy = 3A24822C1C59FB8100F27695 /* PBXContainerItemProxy */;
+		};
+		3A2482401C5A05BF00F27695 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSCycleScrollView;
+			targetProxy = 3A24823F1C5A05BF00F27695 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3A9D56E41C040AE0000C3533 /* Main.storyboard */ = {
@@ -288,6 +373,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SSCycleScrollDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -300,6 +388,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SSCycleScrollDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
