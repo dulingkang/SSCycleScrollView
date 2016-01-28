@@ -10,8 +10,13 @@
 > * 轮播图上需要点击链接，只需要调用一个block便可加上点击
 
 ### 使用方法
-> * 把SSCycleScroll文件夹拖入到工程中：![QQ20151124-0.png](http://upload-images.jianshu.io/upload_images/844885-ca63a0b6e3e461ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
+- 1.把SSCycleScroll文件夹拖入到工程中：![QQ20151124-0.png](http://upload-images.jianshu.io/upload_images/844885-ca63a0b6e3e461ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- 2. 在Podfile加入以下：
+```
+use_frameworks!
+pod 'SSCycleScrollView'
+```
+下面可参考Demo中：
 > * defaultBackground.jpg换成自己的背景，当没有网络时，会用本地的这一张图轮播，imageDownload.plist请也要带着，初始化时会用到，如果不用网络图片，只用SSCycleScrollView.swift这一个文件就可以了;
 
 > * 初始化一个SSCycleScrollView:
