@@ -1,10 +1,11 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'SSCycleScrollDemo' do
+target 'SSCycleScrollView' do
   use_frameworks!
-pod 'SSCycleScrollView'
-pod 'SDWebImage'
-pod 'SDWebImage/WebP'
+  pod 'SDWebImage'
+  pod 'SDWebImage/WebP'
+
+  # Pods for SSCycleScrollView
 
 end

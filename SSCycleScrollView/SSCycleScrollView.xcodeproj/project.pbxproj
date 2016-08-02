@@ -7,28 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1E12D81D50A3F4003BE506 /* SSCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E12D71D50A3F4003BE506 /* SSCycleScrollView.swift */; };
 		3A2482471C5A0DFF00F27695 /* defaultBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A2482441C5A0DFF00F27695 /* defaultBackground.jpg */; };
 		3A2482481C5A0DFF00F27695 /* imageDownload.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A2482451C5A0DFF00F27695 /* imageDownload.plist */; };
 		3A2482491C5A0DFF00F27695 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A2482461C5A0DFF00F27695 /* Info.plist */; };
 		3A5B2E4F1C58E3BB006D82FC /* SSCycleScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A5B2E4E1C58E3BB006D82FC /* SSCycleScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A5B2E6E1C58E407006D82FC /* SSCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B2E671C58E407006D82FC /* SSCycleScrollView.swift */; };
-		3A5B2E6F1C58E407006D82FC /* SSDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B2E681C58E407006D82FC /* SSDownloadManager.swift */; };
-		3A5B2E701C58E407006D82FC /* SSImageDownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B2E691C58E407006D82FC /* SSImageDownloadModel.swift */; };
-		3A5B2E711C58E407006D82FC /* SSImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B2E6A1C58E407006D82FC /* SSImageFileManager.swift */; };
-		3A5B2E721C58E407006D82FC /* SSNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5B2E6B1C58E407006D82FC /* SSNetworking.swift */; };
+		B09CE8A64E0A0DD03D951848 /* Pods_SSCycleScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF863CD42A3114E77D362798 /* Pods_SSCycleScrollView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A062B6B26D808CE3A0CB943 /* Pods-SSCycleScrollView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSCycleScrollView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSCycleScrollView/Pods-SSCycleScrollView.release.xcconfig"; sourceTree = "<group>"; };
+		2A1E12D71D50A3F4003BE506 /* SSCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCycleScrollView.swift; sourceTree = "<group>"; };
 		3A2482441C5A0DFF00F27695 /* defaultBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultBackground.jpg; sourceTree = "<group>"; };
 		3A2482451C5A0DFF00F27695 /* imageDownload.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = imageDownload.plist; sourceTree = "<group>"; };
 		3A2482461C5A0DFF00F27695 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5B2E4B1C58E3BB006D82FC /* SSCycleScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSCycleScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5B2E4E1C58E3BB006D82FC /* SSCycleScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSCycleScrollView.h; sourceTree = "<group>"; };
-		3A5B2E671C58E407006D82FC /* SSCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCycleScrollView.swift; sourceTree = "<group>"; };
-		3A5B2E681C58E407006D82FC /* SSDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDownloadManager.swift; sourceTree = "<group>"; };
-		3A5B2E691C58E407006D82FC /* SSImageDownloadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSImageDownloadModel.swift; sourceTree = "<group>"; };
-		3A5B2E6A1C58E407006D82FC /* SSImageFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSImageFileManager.swift; sourceTree = "<group>"; };
-		3A5B2E6B1C58E407006D82FC /* SSNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSNetworking.swift; sourceTree = "<group>"; };
+		AA4D05910D3A36BFC2C2A54A /* Pods-SSCycleScrollView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSCycleScrollView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSCycleScrollView/Pods-SSCycleScrollView.debug.xcconfig"; sourceTree = "<group>"; };
+		BF863CD42A3114E77D362798 /* Pods_SSCycleScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSCycleScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B09CE8A64E0A0DD03D951848 /* Pods_SSCycleScrollView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,11 +52,7 @@
 		3A2482431C5A0D7A00F27695 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3A5B2E671C58E407006D82FC /* SSCycleScrollView.swift */,
-				3A5B2E681C58E407006D82FC /* SSDownloadManager.swift */,
-				3A5B2E691C58E407006D82FC /* SSImageDownloadModel.swift */,
-				3A5B2E6A1C58E407006D82FC /* SSImageFileManager.swift */,
-				3A5B2E6B1C58E407006D82FC /* SSNetworking.swift */,
+				2A1E12D71D50A3F4003BE506 /* SSCycleScrollView.swift */,
 				3A5B2E4E1C58E3BB006D82FC /* SSCycleScrollView.h */,
 			);
 			name = Classes;
@@ -70,6 +63,8 @@
 			children = (
 				3A5B2E4D1C58E3BB006D82FC /* SSCycleScrollView */,
 				3A5B2E4C1C58E3BB006D82FC /* Products */,
+				5591F37F42B48E9B0466C6D5 /* Pods */,
+				72F41F6405EA6D995C1DCC86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +85,23 @@
 			path = SSCycleScrollView;
 			sourceTree = "<group>";
 		};
+		5591F37F42B48E9B0466C6D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA4D05910D3A36BFC2C2A54A /* Pods-SSCycleScrollView.debug.xcconfig */,
+				2A062B6B26D808CE3A0CB943 /* Pods-SSCycleScrollView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		72F41F6405EA6D995C1DCC86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF863CD42A3114E77D362798 /* Pods_SSCycleScrollView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -108,10 +120,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A5B2E5F1C58E3BB006D82FC /* Build configuration list for PBXNativeTarget "SSCycleScrollView" */;
 			buildPhases = (
+				F114AA2FCE2B0D1BFB10ABFB /* [CP] Check Pods Manifest.lock */,
 				3A5B2E461C58E3BB006D82FC /* Sources */,
 				3A5B2E471C58E3BB006D82FC /* Frameworks */,
 				3A5B2E481C58E3BB006D82FC /* Headers */,
 				3A5B2E491C58E3BB006D82FC /* Resources */,
+				A29F5C5BBF10D3FA2A3313B4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,7 +142,7 @@
 		3A5B2E421C58E3BB006D82FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Shawn;
 				TargetAttributes = {
@@ -167,16 +181,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A29F5C5BBF10D3FA2A3313B4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SSCycleScrollView/Pods-SSCycleScrollView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F114AA2FCE2B0D1BFB10ABFB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3A5B2E461C58E3BB006D82FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5B2E701C58E407006D82FC /* SSImageDownloadModel.swift in Sources */,
-				3A5B2E6E1C58E407006D82FC /* SSCycleScrollView.swift in Sources */,
-				3A5B2E6F1C58E407006D82FC /* SSDownloadManager.swift in Sources */,
-				3A5B2E721C58E407006D82FC /* SSNetworking.swift in Sources */,
-				3A5B2E711C58E407006D82FC /* SSImageFileManager.swift in Sources */,
+				2A1E12D81D50A3F4003BE506 /* SSCycleScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +317,7 @@
 		};
 		3A5B2E601C58E3BB006D82FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA4D05910D3A36BFC2C2A54A /* Pods-SSCycleScrollView.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -287,12 +331,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SH.SSCycleScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		3A5B2E611C58E3BB006D82FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A062B6B26D808CE3A0CB943 /* Pods-SSCycleScrollView.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -306,6 +353,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SH.SSCycleScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
