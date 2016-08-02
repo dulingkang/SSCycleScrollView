@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2A1E12D81D50A3F4003BE506 /* SSCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E12D71D50A3F4003BE506 /* SSCycleScrollView.swift */; };
-		3A2482471C5A0DFF00F27695 /* defaultBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A2482441C5A0DFF00F27695 /* defaultBackground.jpg */; };
-		3A2482481C5A0DFF00F27695 /* imageDownload.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A2482451C5A0DFF00F27695 /* imageDownload.plist */; };
 		3A2482491C5A0DFF00F27695 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A2482461C5A0DFF00F27695 /* Info.plist */; };
 		3A5B2E4F1C58E3BB006D82FC /* SSCycleScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A5B2E4E1C58E3BB006D82FC /* SSCycleScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B09CE8A64E0A0DD03D951848 /* Pods_SSCycleScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF863CD42A3114E77D362798 /* Pods_SSCycleScrollView.framework */; };
@@ -18,8 +16,6 @@
 /* Begin PBXFileReference section */
 		2A062B6B26D808CE3A0CB943 /* Pods-SSCycleScrollView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSCycleScrollView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSCycleScrollView/Pods-SSCycleScrollView.release.xcconfig"; sourceTree = "<group>"; };
 		2A1E12D71D50A3F4003BE506 /* SSCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCycleScrollView.swift; sourceTree = "<group>"; };
-		3A2482441C5A0DFF00F27695 /* defaultBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultBackground.jpg; sourceTree = "<group>"; };
-		3A2482451C5A0DFF00F27695 /* imageDownload.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = imageDownload.plist; sourceTree = "<group>"; };
 		3A2482461C5A0DFF00F27695 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5B2E4B1C58E3BB006D82FC /* SSCycleScrollView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSCycleScrollView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5B2E4E1C58E3BB006D82FC /* SSCycleScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSCycleScrollView.h; sourceTree = "<group>"; };
@@ -42,8 +38,6 @@
 		3A2482421C5A0D7000F27695 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				3A2482441C5A0DFF00F27695 /* defaultBackground.jpg */,
-				3A2482451C5A0DFF00F27695 /* imageDownload.plist */,
 				3A2482461C5A0DFF00F27695 /* Info.plist */,
 			);
 			name = Resource;
@@ -173,8 +167,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A2482481C5A0DFF00F27695 /* imageDownload.plist in Resources */,
-				3A2482471C5A0DFF00F27695 /* defaultBackground.jpg in Resources */,
 				3A2482491C5A0DFF00F27695 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
