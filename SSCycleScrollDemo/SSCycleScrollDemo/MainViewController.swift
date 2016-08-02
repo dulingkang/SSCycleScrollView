@@ -9,7 +9,6 @@
 import UIKit
 import SSCycleScrollView
 
-/*************** 使用请改变成自己服务器的url地址，自己配置json文件 ***************/
 let kScreenWidth = UIScreen.mainScreen().bounds.width
 let kScreenHeight = UIScreen.mainScreen().bounds.height
 let kScrollRect = CGRectMake(0, 0, kScreenWidth, kScreenHeight*0.8)
