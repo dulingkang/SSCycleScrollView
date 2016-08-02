@@ -27,11 +27,9 @@ pod 'SSCycleScrollView'
 
 ```
 
-### 原理详解
-
-
 #### SSCycScrollView
-> 初始化后会启动一个定时器，repeat调用一个timerFired方法，方法中每次对scrollview加一个自己宽度的offset:
+初始化后会启动一个定时器，repeat调用一个timerFired方法，方法中每次对scrollview加一个自己宽度的offset:
+
 ```
 func timerFired() {
 let xOffset = Int(self.contentOffset.x/kScreenWidth)
@@ -40,8 +38,10 @@ let newOffset = CGPointMake(xOffsetFloat + CGRectGetWidth(self.frame), self.cont
 self.setContentOffset(newOffset, animated: true)
 }
 ```
+
 没有直接加xOffset, 而是对其做了一个换算，确保每次加的offset是自己宽度的整数倍。
-> 在scrollViewDidScroll方法，每次计算前一个，当前，后一个index，确保index范围为index >= 0 && index < allImageArray.count, 每次滚动后都会三个imageView中的image做重新赋值：
+在scrollViewDidScroll方法，每次计算前一个，当前，后一个index，确保index范围为index >= 0 && index < allImageArray.count, 每次滚动后都会三个imageView中的image做重新赋值：
+
 ```
 self.previousDisplayView?.image = self.allImageArray[previousArrayIndex]
 self.currentDisplayView?.image = self.allImageArray[self.currentArrayIndex]
