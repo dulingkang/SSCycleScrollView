@@ -1,13 +1,11 @@
 ### swift首页轮播 轻量级 超级缓存
 
-> 轮播终结者，超高缓存，会取json文件是否需要下载，不会每次下载消耗流量，用swift完成，易于使用
-> 下了几个首页无限轮播，都不好用，不是白屏，就是有空隙，自己动手用swift写了一个，欢迎试用，如果你觉得好用，就给点个star，或者fork！
+> 轮播终结者，用swift完成，易于集成使用，下载图片使用了SDWebImage
+> 自己动手用swift写了一个，欢迎试用！
 
 ### 网上找了一些首页轮播，写的或多或少有一些问题，用着不舒服，自己用swift写了一个轮播控件，有如下特点：
-> * 使用自己写的网络请求SSNetWorking，无需第三方库
-> * 由于轮播图一般较少，采用的plist存储用SSImageFileManager去管理存储
-> * 网络请求下载图片会在需要时请求下载，已下载完的图片会缓存起来，再次启动也不会再次请求，不会无故浪费用户流量
-> * 轮播图上需要点击链接，只需要调用一个block便可加上点击
+> * 下载图片使用了SDWebImage，性能高
+> * 轮播图上需要点击链接，只需要调用一个block便可加上点击，易于集成
 
 ### 使用方法
 - 1.把SSCycleScroll文件夹拖入到工程中：![QQ20151124-0.png](http://upload-images.jianshu.io/upload_images/844885-ca63a0b6e3e461ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
