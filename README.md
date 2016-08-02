@@ -10,6 +10,7 @@
 
 ### 使用方法
 - 1. 在Podfile加入以下：
+
 ```
 use_frameworks!
 pod 'SSCycleScrollView'
@@ -27,7 +28,8 @@ pod 'SSCycleScrollView'
 
 ```
 
-#### SSCycScrollView
+### SSCycScrollView
+
 初始化后会启动一个定时器，repeat调用一个timerFired方法，方法中每次对scrollview加一个自己宽度的offset:
 
 ```
@@ -48,7 +50,8 @@ self.currentDisplayView?.image = self.allImageArray[self.currentArrayIndex]
 self.lastDisplayView?.image = self.allImageArray[lastArrayIndex]
 self.contentOffset = CGPointMake(CGRectGetWidth(self.frame), 0)
 ```
-> 上面最后一行设置contenOffset非常重要，每次把scrollView的位置重置为1个自身宽度的offset。
+
+上面最后一行设置contenOffset非常重要，每次把scrollView的位置重置为1个自身宽度的offset。
 
 ### 小结
 
