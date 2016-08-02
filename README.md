@@ -9,17 +9,17 @@
 > * 支持webp格式图片
 
 ### 使用方法
-- 1. 在Podfile加入以下：
+1. 在Podfile加入以下：
 
 ```
 use_frameworks!
 pod 'SSCycleScrollView'
 ```
-- 2. 这个库中支持了webp格式图片，引入了SDWebImage库。
+2. 这个库中支持了webp格式图片，引入了SDWebImage库。
 下面可参考Demo中：
-> * 初始化时，传一个url的array，可以传本地的图片名字，也可以传网络图片;
+初始化时，传一个url的array，可以传本地的图片名字，也可以传网络图片;
+初始化一个SSCycleScrollView:
 
-> * 初始化一个SSCycleScrollView:
 ```
         self.mainScrollView = SSCycleScrollView.init(frame: currentRect, animationDuration: 3, inputImageUrls: self.scrollImageUrls)
         self.mainScrollView?.tapBlock = {index in
@@ -28,8 +28,7 @@ pod 'SSCycleScrollView'
 
 ```
 
-### SSCycScrollView
-
+### 原理SSCycScrollView
 初始化后会启动一个定时器，repeat调用一个timerFired方法，方法中每次对scrollview加一个自己宽度的offset:
 
 ```
@@ -54,6 +53,5 @@ self.contentOffset = CGPointMake(CGRectGetWidth(self.frame), 0)
 上面最后一行设置contenOffset非常重要，每次把scrollView的位置重置为1个自身宽度的offset。
 
 ### 小结
-
-> 如果你觉得有不好的地方，可以提出来，大家一块研究一下，欢迎常来我的[仓库](https://github.com/dulingkang/)，别忘记给个star！
+如果你觉得有不好的地方，可以提出来，大家一块研究一下，欢迎常来我的[仓库](https://github.com/dulingkang/)，别忘记给个star！
 
