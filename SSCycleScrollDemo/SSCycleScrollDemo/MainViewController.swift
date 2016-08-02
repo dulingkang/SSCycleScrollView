@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SSCycleScrollView
 
 /*************** 使用请改变成自己服务器的url地址，自己配置json文件 ***************/
 let kScreenWidth = UIScreen.mainScreen().bounds.width

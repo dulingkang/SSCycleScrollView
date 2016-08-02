@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "SSCycleScrollView"
-  spec.version = "2.0.0"
+  spec.version = "2.0.1"
   spec.summary = "infinate scroll home page using swift"
   spec.homepage = "https://github.com/dulingkang/SSCycleScrollView"
   spec.license = { type: 'MIT', file: 'LICENSE' }
@@ -11,4 +11,6 @@ Pod::Spec.new do |spec|
   spec.source = { git: "https://github.com/dulingkang/SSCycleScrollView.git", tag: "v#{spec.version}", submodules: true }
   spec.source_files = "SSCycleScrollView/**/*.{h,swift}"
   spec.resource	    = "SSCycleScrollView/**/*.{jpg,plist}"
+  spec.dependency "SDWebImage"
+  spec.dependency "SDWebImage/WebP"
 end

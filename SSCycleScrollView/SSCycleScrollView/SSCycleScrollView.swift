@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-typealias tapActionBlock = (Int) -> ()
+public typealias tapActionBlock = (Int) -> ()
 
 public class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
     var currentArrayIndex: Int!
@@ -26,7 +26,7 @@ public class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
             }
         }
     }
-    var tapBlock: tapActionBlock?
+    public var tapBlock: tapActionBlock?
     let kScreenWidth = UIScreen.mainScreen().bounds.size.width
     let kScreenHeight = UIScreen.mainScreen().bounds.size.height
     var needScroll = true

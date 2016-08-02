@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A1E12D01D508EF2003BE506 /* SSCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E12CF1D508EF2003BE506 /* SSCycleScrollView.swift */; };
 		2A1E12D21D509EFD003BE506 /* banner1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A1E12D11D509EFD003BE506 /* banner1.jpg */; };
 		2A1E12D41D509FE7003BE506 /* banner3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A1E12D31D509FE7003BE506 /* banner3.jpg */; };
 		2A1E12D61D50A02B003BE506 /* banner4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A1E12D51D50A02B003BE506 /* banner4.jpg */; };
@@ -34,7 +33,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2A1E12CF1D508EF2003BE506 /* SSCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCycleScrollView.swift; sourceTree = "<group>"; };
 		2A1E12D11D509EFD003BE506 /* banner1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner1.jpg; sourceTree = "<group>"; };
 		2A1E12D31D509FE7003BE506 /* banner3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner3.jpg; sourceTree = "<group>"; };
 		2A1E12D51D50A02B003BE506 /* banner4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = banner4.jpg; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 		3A9D56DF1C040ADF000C3533 /* SSCycleScrollDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2A1E12CF1D508EF2003BE506 /* SSCycleScrollView.swift */,
 				3A9D56F21C040BB2000C3533 /* MainViewController.swift */,
 				3A9D56E01C040ADF000C3533 /* AppDelegate.swift */,
 				3A9D56E41C040AE0000C3533 /* Main.storyboard */,
@@ -247,7 +244,6 @@
 			files = (
 				3A9D56E11C040ADF000C3533 /* AppDelegate.swift in Sources */,
 				3A9D56F91C040BB2000C3533 /* MainViewController.swift in Sources */,
-				2A1E12D01D508EF2003BE506 /* SSCycleScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
