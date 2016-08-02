@@ -29,7 +29,7 @@ PODS:
   - SDWebImage/WebP (3.8.1):
     - libwebp
     - SDWebImage/Core
-  - SSCycleScrollView (2.0.1):
+  - SSCycleScrollView (2.0.2):
     - SDWebImage
     - SDWebImage/WebP
 
@@ -39,7 +39,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   libwebp: 68ba2001ba6806ee52837ebd77a551a0b6567e4e
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
-  SSCycleScrollView: 32f84188b6fcd57c6f342850c9c5153717087d25
+  SSCycleScrollView: b89aa191eb7adafdfc24cc4d373d2ee7372e05c1
 
 PODFILE CHECKSUM: 4a8fd369e580ee45da5fe0012a1be8e198711647
 
