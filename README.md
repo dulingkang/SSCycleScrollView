@@ -9,13 +9,13 @@
 > * 支持webp格式图片
 
 ### 使用方法
-1. 在Podfile加入以下：
+在Podfile加入以下：
 
 ```
 use_frameworks!
 pod 'SSCycleScrollView'
 ```
-2. 这个库中支持了webp格式图片，引入了SDWebImage库。
+这个库中支持了webp格式图片，引入了SDWebImage库。
 下面可参考Demo中：
 初始化时，传一个url的array，可以传本地的图片名字，也可以传网络图片;
 初始化一个SSCycleScrollView:
