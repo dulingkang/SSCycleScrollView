@@ -28,7 +28,7 @@ pod 'SSCycleScrollView'
 
 ```
 
-### 原理SSCycScrollView
+### 原理SSCycleScrollView
 初始化后会启动一个定时器，repeat调用一个timerFired方法，方法中每次对scrollview加一个自己宽度的offset:
 
 ```
