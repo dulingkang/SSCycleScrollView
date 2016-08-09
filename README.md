@@ -3,7 +3,7 @@
 - 自己动手用swift写了一个，欢迎试用！
 - 效果图：
 <div align=center>
-<img src="http://115.28.228.41/images/sscycle.gif" width="210" height="240"/>
+<img src="https://github.com/dulingkang/SSCycleScrollView/blob/master/SSCycleScrollDemo/SSCycleScrollDemo/sscycle.gif" width="210" height="240"/>
 </div>
 
 ### 网上找了一些首页轮播，写的或多或少有一些问题，用着不舒服，自己用swift写了一个轮播控件，有如下特点：
