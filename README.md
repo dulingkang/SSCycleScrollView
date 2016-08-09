@@ -1,5 +1,5 @@
 ### swift首页轮播 轻量级 超级缓存
-![效果动画](http://115.28.228.41/images/sscycle.gif)
+![效果动画](http://115.28.228.41/images/sscycle.gif=220x240)
 
 > 轮播终结者，用swift完成，易于集成使用，下载图片使用了SDWebImage
 > 自己动手用swift写了一个，欢迎试用！
