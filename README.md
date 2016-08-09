@@ -1,5 +1,5 @@
 ### swift首页轮播 轻量级 超级缓存
-![out.gif](http://upload-images.jianshu.io/upload_images/844885-e81027e7ee61d335.gif?imageMogr2/auto-orient/strip)
+![效果动画](http://115.28.228.41/images/sscycle.gif)
 
 > 轮播终结者，用swift完成，易于集成使用，下载图片使用了SDWebImage
 > 自己动手用swift写了一个，欢迎试用！
