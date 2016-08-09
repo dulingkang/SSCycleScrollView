@@ -1,9 +1,10 @@
 ### swift首页轮播 轻量级 超级缓存
+- 轮播终结者，用swift完成，易于集成使用，下载图片使用了SDWebImage
+- 自己动手用swift写了一个，欢迎试用！
+- 效果图：
 <div align=center>
 <img src="http://115.28.228.41/images/sscycle.gif" width="210" height="240"/>
 </div>
-- 轮播终结者，用swift完成，易于集成使用，下载图片使用了SDWebImage
-- 自己动手用swift写了一个，欢迎试用！
 
 ### 网上找了一些首页轮播，写的或多或少有一些问题，用着不舒服，自己用swift写了一个轮播控件，有如下特点：
 > * 下载图片使用了SDWebImage，性能高
@@ -60,13 +61,13 @@ self.contentOffset = CGPointMake(CGRectGetWidth(self.frame), 0)
 ### 微信公众号
 
 <div align=center>
-<img src="http://upload-images.jianshu.io/upload_images/844885-6ede66cdf2a3c46e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="200" height="200" alt="开发者思维 devthinking"/>
+<img src="http://upload-images.jianshu.io/upload_images/844885-6ede66cdf2a3c46e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="180" height="180" alt="开发者思维 devthinking"/>
 </div>
 
 ### QQ交流群：295976280
 
 <div align=center>
-<img src="http://upload-images.jianshu.io/upload_images/844885-0b4506f56fb77b47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="200" height="200" alt="iOS交流群（一）群二维码"/>
+<img src="http://upload-images.jianshu.io/upload_images/844885-0b4506f56fb77b47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="200" height="220" alt="iOS交流群（一）群二维码"/>
 </div>
 
 
