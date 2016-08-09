@@ -1,6 +1,11 @@
 ### swift首页轮播 轻量级 超级缓存
-![效果动画](http://115.28.228.41/images/sscycle.gif=220x240)
+<div align=center>
+<img src="http://115.28.228.41/images/sscycle.gif" width="220" height="240" alt="亦菲表演机器猫"/>
+</div>
 
+文／唐衣可俊（简书作者）
+原文链接：http://www.jianshu.com/p/9d94660a96f1
+著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。
 > 轮播终结者，用swift完成，易于集成使用，下载图片使用了SDWebImage
 > 自己动手用swift写了一个，欢迎试用！
 
