@@ -67,7 +67,7 @@ self.contentOffset = CGPointMake(CGRectGetWidth(self.frame), 0)
 ### QQ交流群：295976280
 
 <div align=center>
-<img src="http://upload-images.jianshu.io/upload_images/844885-0b4506f56fb77b47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="200" height="220" alt="iOS交流群（一）群二维码"/>
+<img src="http://upload-images.jianshu.io/upload_images/844885-0b4506f56fb77b47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="180" height="220" alt="iOS交流群（一）群二维码"/>
 </div>
 
 
