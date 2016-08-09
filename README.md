@@ -1,6 +1,6 @@
 ### swift首页轮播 轻量级 超级缓存
 <div align=center>
-<img src="http://115.28.228.41/images/sscycle.gif" width="220" height="240" alt="亦菲表演机器猫"/>
+<img src="http://115.28.228.41/images/sscycle.gif" width="240" height="210" alt="亦菲表演机器猫"/>
 </div>
 
 文／唐衣可俊（简书作者）
