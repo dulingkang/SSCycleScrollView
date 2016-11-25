@@ -21,6 +21,17 @@ pod 'SSCycleScrollView'
 这个库中支持了webp格式图片，引入了SDWebImage库。
 下面可参考Demo中：
 初始化时，传一个url的array，可以传本地的图片名字，也可以传网络图片;
+v2.1.0中为了引入网络图片的placeholderImage，此array改成了如下样式：
+```
+var scrollImageUrls: [[String]] {
+        get {
+            return [["https://devthinking.com/images/wechatqcode.jpg", "banner4.jpg"],
+                    ["banner1.jpg"],
+                    ["banner3.jpg"]]
+        }
+    }
+```
+
 初始化一个SSCycleScrollView:
 
 ```
@@ -30,7 +41,10 @@ pod 'SSCycleScrollView'
         }
 
 ```
-
+autoScroll默认为true，如只需要手动滚动，需要：
+```
+       self.mainScrollView?.autoScroll = false
+```
 ### 原理SSCycleScrollView
 初始化后会启动一个定时器，repeat调用一个timerFired方法，方法中每次对scrollview加一个自己宽度的offset:
 
