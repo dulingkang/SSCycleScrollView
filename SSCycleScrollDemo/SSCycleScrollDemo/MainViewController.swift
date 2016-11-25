@@ -9,27 +9,32 @@
 import UIKit
 import SSCycleScrollView
 
-let kScreenWidth = UIScreen.mainScreen().bounds.width
-let kScreenHeight = UIScreen.mainScreen().bounds.height
-let kScrollRect = CGRectMake(0, 0, kScreenWidth, kScreenHeight*0.8)
-let kIphone4sScrollRect = CGRectMake(0, 0, kScreenWidth, kScreenHeight*0.94)
+let kScreenWidth = UIScreen.main.bounds.width
+let kScreenHeight = UIScreen.main.bounds.height
+let kScrollRect = CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight*0.8)
+let kIphone4sScrollRect = CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight*0.94)
 
 class MainViewController: UIViewController {
     
-    var scrollImageUrls: [String] {
+    var scrollImageUrls: [[String]] {
         get {
-            return ["banner1.jpg", "http://www.zhkhy.com/xiaoka/mainscrollview/ios1.2.1/happy_winter_background1.jpg", "banner3.jpg", "banner4.jpg"]
+            return [["https://devthinking.com/images/wechatqcode.jpg", "banner4.jpg"],
+                    ["banner1.jpg"],
+                    ["banner3.jpg"]]
         }
     }
     var mainScrollView: SSCycleScrollView?
     
     //MARK: - life cycle
     override func viewDidLoad() {
-
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blueColor()
+        self.view.backgroundColor = UIColor.blue
         self.addMainScrollView()
         self.addBottomView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     //MARK: - private method
@@ -47,11 +52,16 @@ class MainViewController: UIViewController {
     }
     
     func addBottomView() {
-        //Use layer can be more light
-        let layer = CALayer()
-        layer.frame = CGRectMake(0, kScreenHeight/2, kScreenWidth, kScreenHeight/2)
-        layer.contents = UIImage(named: "mainBottomBackground")?.CGImage
-        layer.contentsGravity = kCAGravityResizeAspectFill
-        self.view.layer.addSublayer(layer)
+        let imageView = UIImageView(frame: CGRect(x: 0, y: kScreenHeight/2, width: kScreenWidth, height: kScreenHeight/2))
+        imageView.image = UIImage(named: "mainBottomBackground")
+        imageView.contentMode = .scaleAspectFill
+        imageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(MainViewController.imageViewTapped))
+        imageView.addGestureRecognizer(tap)
+        self.view.addSubview(imageView)
+    }
+    
+    func imageViewTapped() {
+        navigationController?.pushViewController(FirstViewController(), animated: true)
     }
 }

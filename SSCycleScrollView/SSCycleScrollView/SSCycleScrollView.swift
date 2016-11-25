@@ -11,28 +11,28 @@ import SDWebImage
 
 public typealias tapActionBlock = (Int) -> ()
 
-public class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
+open class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
     var currentArrayIndex: Int!
-    var animationDuration: NSTimeInterval!
-    var animationTimer: NSTimer?
+    var animationDuration: TimeInterval!
+    var animationTimer: Timer?
     var currentDisplayView: UIImageView?
     var lastDisplayView: UIImageView?
     var previousDisplayView: UIImageView?
-    public var allImageUrls: [String] = []
-    public var autoScroll = true {
+    open var allImageUrls: [[String]] = [[]]
+    open var autoScroll = true {
         didSet {
             if !autoScroll {
                 cancelTimer()
             }
         }
     }
-    public var tapBlock: tapActionBlock?
-    let kScreenWidth = UIScreen.mainScreen().bounds.size.width
-    let kScreenHeight = UIScreen.mainScreen().bounds.size.height
+    open var tapBlock: tapActionBlock?
+    let kScreenWidth = UIScreen.main.bounds.size.width
+    let kScreenHeight = UIScreen.main.bounds.size.height
     var needScroll = true
     
     //MARK: - init method
-    public init(frame: CGRect, animationDuration: NSTimeInterval, inputImageUrls: [String]) {
+    public init(frame: CGRect, animationDuration: TimeInterval, inputImageUrls: [[String]]) {
         super.init(frame: frame)
         self.animationDuration = animationDuration
         self.currentArrayIndex = 1
@@ -48,31 +48,31 @@ public class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
         self.configScrollView(frame)
     }
     
-    private func configScrollView(frame: CGRect) {
+    fileprivate func configScrollView(_ frame: CGRect) {
         self.autoresizesSubviews = true
-        self.contentMode = UIViewContentMode.Center
-        self.contentSize = CGSizeMake(3 * CGRectGetWidth(frame), CGRectGetHeight(frame))
-        self.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        self.contentMode = UIViewContentMode.center
+        self.contentSize = CGSize(width: 3 * frame.width, height: frame.height)
+        self.autoresizingMask = UIViewAutoresizing.flexibleWidth
         self.delegate  = self
-        self.pagingEnabled = true
+        self.isPagingEnabled = true
         
         
-        self.currentDisplayView = UIImageView.init(frame:  CGRectMake(CGRectGetWidth(frame), frame.origin.y, CGRectGetWidth(frame), CGRectGetHeight(frame)))
-        self.previousDisplayView = UIImageView.init(frame: CGRectMake(0, frame.origin.y, CGRectGetWidth(frame), CGRectGetHeight(frame)))
-        self.lastDisplayView = UIImageView.init(frame: CGRectMake(2 * CGRectGetWidth(frame), frame.origin.y, CGRectGetWidth(frame), CGRectGetHeight(frame)))
-        self.currentDisplayView?.userInteractionEnabled = true
-        self.previousDisplayView?.userInteractionEnabled = true
-        self.lastDisplayView?.userInteractionEnabled = true
-        self.currentDisplayView?.contentMode = .ScaleAspectFill
-        self.previousDisplayView?.contentMode = .ScaleAspectFill
-        self.lastDisplayView?.contentMode = .ScaleAspectFill
+        self.currentDisplayView = UIImageView.init(frame:  CGRect(x: frame.width, y: frame.origin.y, width: frame.width, height: frame.height))
+        self.previousDisplayView = UIImageView.init(frame: CGRect(x: 0, y: frame.origin.y, width: frame.width, height: frame.height))
+        self.lastDisplayView = UIImageView.init(frame: CGRect(x: 2 * frame.width, y: frame.origin.y, width: frame.width, height: frame.height))
+        self.currentDisplayView?.isUserInteractionEnabled = true
+        self.previousDisplayView?.isUserInteractionEnabled = true
+        self.lastDisplayView?.isUserInteractionEnabled = true
+        self.currentDisplayView?.contentMode = .scaleAspectFill
+        self.previousDisplayView?.contentMode = .scaleAspectFill
+        self.lastDisplayView?.contentMode = .scaleAspectFill
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(SSCycleScrollView.tapAction(_:)))
         self.addGestureRecognizer(tap)
         self.addSubview(currentDisplayView!)
         self.addSubview(previousDisplayView!)
         self.addSubview(lastDisplayView!)
         
-        self.contentOffset = CGPointMake(CGRectGetWidth(frame), 0)
+        self.contentOffset = CGPoint(x: frame.width, y: 0)
         
         self.configDisplayViews()
         if needScroll {
@@ -85,20 +85,20 @@ public class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
     }
     
     //MARK: - Scrollview delegate
-    public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if autoScroll {
-            self.animationTimer?.fireDate = NSDate.distantFuture()
+            self.animationTimer?.fireDate = Date.distantFuture
         }
     }
     
-    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if autoScroll {
             self.createScrollTimer()
         }
     }
     
-    public func scrollViewDidScroll(scrollView: UIScrollView) {
-        if self.contentOffset.x >= (2 * CGRectGetWidth(self.frame)){
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.contentOffset.x >= (2 * self.frame.width){
             self.currentArrayIndex = self.getArrayIndex(self.currentArrayIndex + 1)
             self.configDisplayViews()
         } else if self.contentOffset.x <= 0 {
@@ -111,11 +111,11 @@ public class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
     func timerFired() {
         let xOffset = Int(self.contentOffset.x/kScreenWidth)
         let xOffsetFloat = CGFloat(xOffset) * kScreenWidth
-        let newOffset = CGPointMake(xOffsetFloat + CGRectGetWidth(self.frame), self.contentOffset.y)
+        let newOffset = CGPoint(x: xOffsetFloat + self.frame.width, y: self.contentOffset.y)
         self.setContentOffset(newOffset, animated: true)
     }
     
-    func tapAction(tap: UITapGestureRecognizer) {
+    func tapAction(_ tap: UITapGestureRecognizer) {
         if (self.tapBlock != nil) {
             self.tapBlock!(self.currentArrayIndex)
         }
@@ -124,17 +124,17 @@ public class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
     //MARK: - public method
     func createScrollTimer() {
         self.animationTimer?.invalidate()
-        self.animationTimer = NSTimer.scheduledTimerWithTimeInterval(self.animationDuration, target: self, selector: #selector(SSCycleScrollView.timerFired), userInfo: nil, repeats: true)
+        self.animationTimer = Timer.scheduledTimer(timeInterval: self.animationDuration, target: self, selector: #selector(SSCycleScrollView.timerFired), userInfo: nil, repeats: true)
     }
     
     //MARK: - private method
     func configDisplayViews() {
         let previousArrayIndex = self.getArrayIndex(self.currentArrayIndex - 1)
         let lastArrayIndex = self.getArrayIndex(self.currentArrayIndex + 1)
-        configPreviousDisplayView(previousArrayIndex)
+        configPreviousDisplayView(previousArrayIndex: previousArrayIndex)
         configCurrentDisplayView()
-        configLastDisplayView(lastArrayIndex)
-        self.contentOffset = CGPointMake(CGRectGetWidth(self.frame), 0)
+        configLastDisplayView(lastArrayIndex: lastArrayIndex)
+        self.contentOffset = CGPoint(x: self.frame.width, y: 0)
     }
     
     func cancelTimer() {
@@ -142,7 +142,7 @@ public class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
         self.animationTimer = nil
     }
     
-    func getArrayIndex(currentIndex: Int) -> Int{
+    func getArrayIndex(_ currentIndex: Int) -> Int{
         if currentIndex == -1 {
             return allImageUrls.count - 1
         } else if currentIndex == allImageUrls.count {
@@ -153,26 +153,54 @@ public class SSCycleScrollView: UIScrollView, UIScrollViewDelegate {
     }
     
     func configPreviousDisplayView(previousArrayIndex: Int) {
-        if allImageUrls[previousArrayIndex].hasPrefix("http"){
-            self.previousDisplayView?.sd_setImageWithURL(NSURL(string:allImageUrls[previousArrayIndex]))
-        } else {
-            self.previousDisplayView?.image = UIImage(named: allImageUrls[previousArrayIndex])
+        let (webUrl, image) = decodeAllImageUrls(index: previousArrayIndex)
+        if webUrl != nil && image != nil {
+            self.previousDisplayView?.sd_setImage(with: webUrl, placeholderImage: image)
+        } else if image == nil {
+            self.previousDisplayView?.sd_setImage(with: webUrl)
+        } else if webUrl == nil {
+            self.previousDisplayView?.image = image
         }
     }
     
-    func configCurrentDisplayView() {
-        if allImageUrls[currentArrayIndex].hasPrefix("http"){
-            self.currentDisplayView?.sd_setImageWithURL(NSURL(string:allImageUrls[currentArrayIndex]))
+    func decodeAllImageUrls(index: Int) -> (webUrl: URL?, image: UIImage?) {
+        var webUrl: URL?
+        var image: UIImage?
+        let firstString = allImageUrls[index][0]
+        if firstString.hasPrefix("http") {
+            webUrl = URL(string: firstString)
+            if allImageUrls[index].count > 1 {
+                if let img = UIImage(named: allImageUrls[index][1]) {
+                    image = img
+                }
+            }
         } else {
-            self.currentDisplayView?.image = UIImage(named: allImageUrls[currentArrayIndex])
+            if let img = UIImage(named: firstString) {
+                image = img
+            }
+        }
+        return (webUrl, image)
+    }
+    
+    func configCurrentDisplayView() {
+        let (webUrl, image) = decodeAllImageUrls(index: currentArrayIndex)
+        if webUrl != nil && image != nil {
+            self.currentDisplayView?.sd_setImage(with: webUrl, placeholderImage: image)
+        } else if image == nil {
+            self.currentDisplayView?.sd_setImage(with: webUrl)
+        } else if webUrl == nil {
+            self.currentDisplayView?.image = image
         }
     }
     
     func configLastDisplayView(lastArrayIndex: Int) {
-        if allImageUrls[lastArrayIndex].hasPrefix("http"){
-            self.lastDisplayView?.sd_setImageWithURL(NSURL(string:allImageUrls[lastArrayIndex]))
-        } else {
-            self.lastDisplayView?.image = UIImage(named: allImageUrls[lastArrayIndex])
+        let (webUrl, image) = decodeAllImageUrls(index: lastArrayIndex)
+        if webUrl != nil && image != nil {
+            self.lastDisplayView?.sd_setImage(with: webUrl, placeholderImage: image)
+        } else if image == nil {
+            self.lastDisplayView?.sd_setImage(with: webUrl)
+        } else if webUrl == nil {
+            self.lastDisplayView?.image = image
         }
     }
 }
