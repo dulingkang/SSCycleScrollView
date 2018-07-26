@@ -61,7 +61,7 @@ class MainViewController: UIViewController {
         self.view.addSubview(imageView)
     }
     
-    func imageViewTapped() {
+  @objc func imageViewTapped() {
         navigationController?.pushViewController(FirstViewController(), animated: true)
     }
 }

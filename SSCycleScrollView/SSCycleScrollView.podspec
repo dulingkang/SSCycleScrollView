@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
   spec.homepage = 'https://github.com/dulingkang/SSCycleScrollView'
   spec.license = { type: 'MIT', file: 'LICENSE' }
   spec.authors = { 'Shawn Du' => 'dulingkang@163.com' }
-
+  spec.swift_version = '4.1'
   spec.description      = <<-DESC
     infinate scroll, home page using swift4, 无限轮播图
   DESC

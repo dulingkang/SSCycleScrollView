@@ -53,14 +53,14 @@ public class SSCycleScrollView: UIScrollView {
   }
   
   //MARK: - event response
-  func timerFired() {
+  @objc func timerFired() {
     let xOffset = Int(self.contentOffset.x/kScreenWidth)
     let xOffsetFloat = CGFloat(xOffset) * kScreenWidth
     let newOffset = CGPoint(x: xOffsetFloat + self.frame.width, y: self.contentOffset.y)
     self.setContentOffset(newOffset, animated: true)
   }
   
-  func tapAction(_ tap: UITapGestureRecognizer) {
+  @objc func tapAction(_ tap: UITapGestureRecognizer) {
     self.tapBlock?(self.currentArrayIndex)
   }
   
